@@ -1,0 +1,57 @@
+body {
+  background-image: url("http://i.imgur.com/xskrTUY.png");
+}
+
+.small-caps {
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .flexlist li{
+    display: inline;
+  }
+  .flexlist li::after{
+    content: " - ";
+  }
+  /*
+  add exception for last child
+  */
+  .affix {
+    position: inherit;
+  }
+/*  .title-box {
+    margin-bottom: 6px;
+  }*/
+}
+@media (max-width: 768px) {
+  .flexlist li{
+    display: block;
+  }
+  .flexlist li::after{
+    content: "";
+  }
+}
+
+@media (min-width: 992px){
+  .affix {
+    width: 212.500px;
+    top: 0;
+  }
+  .affix-top {
+      position: static;
+      width: auto;
+      top: 0;
+  }
+  .affix-bottom {
+      position: absolute;
+  }
+}
+
+.sidebar {
+  margin-top: 16px;
+}
+
+
+.comment {
+  margin-bottom: 30px;
+}

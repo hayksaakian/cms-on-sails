@@ -1,0 +1,34 @@
+<form class="form-signin" action="<%= action %>" method="<%= method %>">
+  <%
+    if (typeof(article) === 'undefined'){
+      article = {
+        title: '',
+        body: ''
+      }
+    }
+  %>
+  <% if (flash && flash.err) { %>
+    <ul>
+      <% Object.keys(flash.err).forEach(function(error){ %>  
+        <li><%= JSON.stringify(flash.err[error]) %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <div class='form-group'>
+    <input name='title' value='<%= article.title %>' placeholder='Title' type='text' class='form-control' autofocus>
+  </div>
+  <div class='form-group'>
+    <div id='epiceditor'></div>
+    <textarea name='body' placeholder='Body' type='text' rows='5' class='form-control' id='article_body'><%= article.body %></textarea>
+  </div>
+
+  <br>
+  <div class='control-group'>
+    <input type='submit' value='Publish Article' class='btn btn-lg'>
+  </div>
+  <div class='control-group'>
+    <!-- hidden inputs -->
+    <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+  </div>
+</form>

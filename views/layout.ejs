@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hayk Saakian's Blog</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/linker/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit your Gruntfile.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/blog.css">
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+  </head>
+
+  <body data-spy="scroll" data-target="#affix-nav">
+
+    <div class='container'>
+      <!-- Include the view file for the current controller/route -->
+      <div class='row'>
+        <div id='affix-nav' class='sidebar col-md-3'> 
+          <nav data-spy="affix" data-offset-top="16" class='nav sidenav'>
+            <div class="title-box">
+              <img class="img-circle img-thumbnail pull-left" src="http://www.gravatar.com/avatar/b65ca542b41f81a6fb5b69bf192d4178.jpg">
+              <ul class='list-unstyled'>
+                <li>&nbsp;</li>
+                <li><h4 class="text-muted"><a href="/">Hayk Saakian</a>
+                </h4></li>
+              </ul>
+            </div>
+
+            <div class='well sidebar sidebar-module sidebar-module-inset'>
+              <!-- <h6 class='small-caps'>Contact me</h6> -->
+              <ul class='list-unstyled flexlist'>
+                <li>
+                  <small>first+"."+last+"@gmail.com"</small>
+                </li>
+                <li>
+                  <a href="http://twitter.com/hayksaakian">twitter/hayksaakian</a>
+                </li>
+                <li>
+                  <a href="https://github.com/hayksaakian">github/hayksakian</a>
+                </li>
+                <li>
+                  (TwoOhSix) 883-7226
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class='col-md-6'>
+          <div class='blog-main'>
+            <%- body %>
+          </div>
+        </div>
+        <div class='col-md-3'>          
+        </div>
+      </div>
+      
+    </div>
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/linker/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit your Gruntfile.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, filesin your `assets/linker/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit your Gruntfile.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/epiceditor.js"></script>
+    <!--SCRIPTS END-->
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+var article_body_textarea = document.getElementById('article_body')
+if(article_body_textarea !== null){
+  console.log('loading editor!!');
+  article_body_textarea.style.display = 'none';
+  var editor = new EpicEditor({'textarea': 'article_body', 'basePath':''}).load();
+} else{
+  console.log('not loading editor')
+}
+    </script>
+  </body>
+</html>
