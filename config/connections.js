@@ -18,7 +18,7 @@
  * http://links.sailsjs.org/docs/config/connections
  */
 
-module.exports.connections = {
+var cnxns = {
 
   // Local disk storage for DEVELOPMENT ONLY
   //
@@ -65,10 +65,11 @@ module.exports.connections = {
   //
   somePostgresqlServer: {
     adapter   : 'sails-postgresql',
-    host      : 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user      : 'YOUR_POSTGRES_USER',
-    password  : 'YOUR_POSTGRES_PASSWORD', 
-    database  : 'YOUR_POSTGRES_DB'
+    url       : process.env.DATABSE_URL
+    // host      : 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
+    // user      : 'YOUR_POSTGRES_USER',
+    // password  : 'YOUR_POSTGRES_PASSWORD', 
+    // database  : 'YOUR_POSTGRES_DB'
   }
 
 
@@ -77,6 +78,39 @@ module.exports.connections = {
 
 };
 
+// Remove this hack when sails-postgresql
+// supports urls in their config
 
+var url = require('url');
 
+isString = function(obj){
+  return typeof(obj) === typeof("a string");
+}
 
+parseUrl = function parseUrl(config) {
+  if(!isString(config.url)) return config;
+
+  var obj = url.parse(config.url);
+
+  config.host = obj.hostname || config.host;
+  config.port = obj.port || config.port;
+
+  if(isString(obj.path)) {
+    config.database = obj.path.split("/")[1] || config.database;
+  }
+
+  if(isString(obj.auth)) {
+    config.user = obj.auth.split(":")[0] || config.user;
+    config.password = obj.auth.split(":")[1] || config.password;
+  }
+
+  return config;
+}
+
+var ckeys = Object.keys(cnxns);
+
+for (var i = ckeys.length - 1; i >= 0; i--) {
+  cnxns[ckeys[i]] = parseUrl(cnxns[ckeys[i]]);
+};
+
+module.exports.connections = cnxns;
