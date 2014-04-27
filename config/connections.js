@@ -65,7 +65,7 @@ var cnxns = {
   //
   somePostgresqlServer: {
     adapter   : 'sails-postgresql',
-    url       : process.env.DATABSE_URL
+    url       : process.env.DATABASE_URL
     // host      : 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
     // user      : 'YOUR_POSTGRES_USER',
     // password  : 'YOUR_POSTGRES_PASSWORD', 
