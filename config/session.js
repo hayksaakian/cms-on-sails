@@ -10,14 +10,12 @@
  * http://sailsjs.org/#documentation
  */
 
-module.exports.session = {
+var session = {
 
   // Session secret is automatically generated when your new app is created
   // Replace at your own risk in production-- you will invalidate the cookies of your users,
   // forcing them to log in again. 
   secret: '3ccf3fac6cdf4bb2615e7607ef1bad9b',
-
-
   // Set the session cookie expire time
   // The maxAge is set by milliseconds, the example below is for 24 hours
   //
@@ -61,4 +59,11 @@ module.exports.session = {
   // ssl: false,
   // stringify: true
 
-};
+}
+
+if (process.env.NODE_ENV === 'production') {
+  session['adapter'] = 'redis';
+  session['url'] = process.env.REDISTOGO_URL;
+}
+
+module.exports.session = session;
