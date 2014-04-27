@@ -6,7 +6,7 @@
  * in each of your models.
  */
 
-var connection = 'somePostgresqlServer';
+var connection = 'someMongodbServer';
 if(process.env.NODE_ENV === 'development'){
   connection = 'localDiskDb';
 }
