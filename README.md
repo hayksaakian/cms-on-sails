@@ -9,3 +9,9 @@ sails generate controller Article index show new edit
 ...
 
 Profit!
+
+
+# todo:
+
+authentication
+slugs for urls

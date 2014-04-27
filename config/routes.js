@@ -29,7 +29,8 @@ module.exports.routes = {
   '/': 'ArticleController.index',
   '/article/:id/edit' : 'ArticleController.edit',
   'post /article/:id/update' : 'ArticleController.update',
-  'post /article' : 'ArticleController.create'
+  'post /article' : 'ArticleController.create',
+  // 'get /article/:id/:slug?' : 'ArticleController.show'
 
   // Custom routes here...
 
