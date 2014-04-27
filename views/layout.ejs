@@ -44,7 +44,7 @@
         <div id='affix-nav' class='sidebar col-md-3'> 
           <nav data-spy="affix" data-offset-top="16" class='nav sidenav'>
             <div class="title-box">
-              <img class="img-circle img-thumbnail pull-left" src="http://www.gravatar.com/avatar/b65ca542b41f81a6fb5b69bf192d4178.jpg">
+              <img class="img-circle img-thumbnail pull-left" src="/images/hayk.jpeg">
               <ul class='list-unstyled'>
                 <li>&nbsp;</li>
                 <li><h4 class="text-muted"><a href="/">Hayk Saakian</a>
@@ -140,11 +140,11 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-var article_body_textarea = document.getElementById('article_body')
-if(article_body_textarea !== null){
+var markdown_field = document.getElementById('markdown_field')
+if(markdown_field !== null){
   console.log('loading editor!!');
-  article_body_textarea.style.display = 'none';
-  var editor = new EpicEditor({'textarea': 'article_body', 'basePath':''}).load();
+  markdown_field.style.display = 'none';
+  var editor = new EpicEditor({'textarea': 'markdown_field', 'basePath':''}).load();
 } else{
   console.log('not loading editor')
 }
