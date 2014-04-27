@@ -24,7 +24,7 @@
     "grunt-contrib-coffee": "~0.10.1",
     "moment": "^2.6.0",
     "markdown": "^0.5.0",
-    "sails-postgresql": "^0.9.7"
+    "sails-postgresql": "^0.10.0-rc3"
   },
   "scripts": {
     "start": "node app.js",
