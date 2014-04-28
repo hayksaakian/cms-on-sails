@@ -1,13 +1,6 @@
 <h4>Write a Comment:</h4>
 <form class="form" action="/comment" method="POST">
   <input type='hidden' name='article' value='<%= article.id %>'>
-  <% if (flash && flash.err) { %>
-    <ul>
-      <% Object.keys(flash.err).forEach(function(error){ %>  
-        <li><%= JSON.stringify(flash.err[error]) %></li>
-      <% }) %>
-    </ul>
-  <% } %>
   <div class='form-group'>
     <input name='owner' placeholder='Name' type='text' class='form-control'>
   </div>
