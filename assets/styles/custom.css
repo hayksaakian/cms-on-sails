@@ -19,13 +19,15 @@ body {
   .affix {
     position: inherit;
   }
-/*  .title-box {
+/*  
+  .title-box {
     margin-bottom: 6px;
-  }*/
+  }
+*/
 }
 @media (max-width: 768px) {
   .flexlist li{
-    display: block;
+    /*display: block;*/
   }
   .flexlist li::after{
     content: "";
@@ -46,11 +48,20 @@ body {
       position: absolute;
   }
 }
-
+/*
 .sidebar {
   margin-top: 16px;
 }
+*/
 
+.title-box {
+  display: table;
+}
+
+.layout-title {
+  display: table-cell;
+  vertical-align: middle;
+}
 
 .comment {
   margin-bottom: 30px;
