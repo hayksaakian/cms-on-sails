@@ -36,10 +36,9 @@ module.exports = {
       return [article, comments]
     }).spread(function (article, comments) {
       res.view({article: article, comments: comments});
-    })
-    .fail(function(err){
+    }).fail(function(err){
       return next(err);
-      res.view({error: err, article: {}, comments: []});
+      res.redirect('/');
     });
   },
 
