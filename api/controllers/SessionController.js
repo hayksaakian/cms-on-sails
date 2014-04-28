@@ -11,6 +11,11 @@ module.exports = {
 	'new': function (req, res, next) {
     res.view('admin');
   },
+  destroy: function (req, res, next) {
+    req.session.authenticated = false;
+    req.session.user = null;
+    res.redirect('/');
+  },
   create: function(req, res, next){
     console.log('creating a session!!');
     // Check for email and password in params sent via the form, if none
