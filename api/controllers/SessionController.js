@@ -17,7 +17,7 @@ module.exports = {
     res.redirect('/');
   },
   create: function(req, res, next){
-    console.log('creating a session!!');
+    // console.log('creating a session!!');
     // Check for email and password in params sent via the form, if none
     // redirect the browser back to the sign-in form.
     if (!req.param('email') || !req.param('password')) {

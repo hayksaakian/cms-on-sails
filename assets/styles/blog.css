@@ -79,7 +79,7 @@ h6, .h6 {
 
 .blog-header {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 .blog-title {
   margin-top: 30px;
@@ -87,7 +87,8 @@ h6, .h6 {
   font-size: 60px;
   font-weight: normal;
 }
-.blog-description {
+.lead.blog-description {
+  margin-bottom: 10px;
   font-size: 20px;
   color: #999;
 }
@@ -100,6 +101,7 @@ h6, .h6 {
 .blog-main {
   font-size: 18px;
   line-height: 1.5;
+  padding: 0 20px;
 }
 
 /* Sidebar modules for boxing content */
@@ -141,12 +143,17 @@ h6, .h6 {
   margin-bottom: 60px;
 }
 .blog-post-title {
-  margin-bottom: 5px;
-  font-size: 40px;
+  margin-bottom: 15px;
+  font-size: 36px;
 }
 .blog-post-meta {
   margin-bottom: 20px;
   color: #999;
+}
+
+.blog-post-body {
+  font-size: 1.15em;
+  line-height: 1.8em;
 }
 
 
