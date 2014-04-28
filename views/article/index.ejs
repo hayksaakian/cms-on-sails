@@ -5,7 +5,8 @@
 </div>
 <%= articles.length %> Articles
 <% if(req.session.authenticated){ %>
-  <a class='pull-right' href="/article/new">New Article</a>
+  <a class='pull-right' href="/article/new">New Article</a> |
+  <a href="/session/destroy">Sign Out</a>
 <% } %>
 <% articles.forEach(function(article){ %>
   <%- partial('partials/article', {article: article}) %>
