@@ -1,0 +1,20 @@
+<form action='/session' method='post' class="form-signin" role="form">
+  <h2 class="form-signin-heading">Please sign in</h2>
+
+  <% if (flash && flash.err) { %>
+    <ul class='alert'>
+      <% Object.keys(flash.err).forEach(function(error){ %>  
+        <li><%= JSON.stringify(flash.err[error]) %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <input name='email' type="email" class="form-control" placeholder="Email address" required autofocus>
+  <input name='password' type="password" class="form-control" placeholder="Password" required>
+<!--   <label class="checkbox">
+    <input type="checkbox" value="remember-me"> Remember me
+  </label> -->
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <!-- hidden inputs -->
+  <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+</form>

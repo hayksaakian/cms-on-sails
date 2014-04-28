@@ -7,13 +7,6 @@
       }
     }
   %>
-  <% if (flash && flash.err) { %>
-    <ul>
-      <% Object.keys(flash.err).forEach(function(error){ %>  
-        <li><%= JSON.stringify(flash.err[error]) %></li>
-      <% }) %>
-    </ul>
-  <% } %>
 
   <div class='form-group'>
     <input name='title' value='<%= article.title %>' placeholder='Title' type='text' class='form-control' autofocus>

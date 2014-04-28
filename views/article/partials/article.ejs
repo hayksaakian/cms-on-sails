@@ -2,7 +2,7 @@
   <h2 class='blog-post-title'><a href="/article/show/<%= article.id %>"><%= article.title %></a></h2>
   <p class="blog-post-meta">published <%= article.published_at() %></p>
   <p><%- article.bodyHTML() %></p>
-  <small>
-    <a href="/article/<%= article.id %>/edit">Edit Article</a>
-  </small>
+  <% if(req.session.authenticated){ %>
+  <small><a href="/article/<%= article.id %>/edit">Edit Article</a></small>
+  <% } %>
 </div>

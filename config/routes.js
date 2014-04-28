@@ -33,6 +33,8 @@ module.exports.routes = {
   'post /article/:id/update' : 'ArticleController.update',
   'get /article/:id' : 'ArticleController.show',
   // 'get /article/:id/:slug?' : 'ArticleController.show'
+  'post /session' : 'SessionController.create',
+  'get /admin' : 'SessionController.new',
 
   // Custom routes here...
 

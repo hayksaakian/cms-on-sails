@@ -4,7 +4,9 @@
   </p>
 </div>
 <%= articles.length %> Articles
-<a class='pull-right' href="/article/new">New Article</a>
+<% if(req.session.authenticated){ %>
+  <a class='pull-right' href="/article/new">New Article</a>
+<% } %>
 <% articles.forEach(function(article){ %>
   <%- partial('partials/article', {article: article}) %>
 <% }) %>

@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/signin.css">
     <!--STYLES END-->
   </head>
 
@@ -72,6 +73,14 @@
           </nav>
         </div>
         <div class='col-md-6'>
+          <% if (flash && flash.err) { %>
+            <ul class='alert'>
+              <% Object.keys(flash.err).forEach(function(error){ %>  
+                <li><%= JSON.stringify(flash.err[error]) %></li>
+              <% }) %>
+            </ul>
+          <% } %>
+
           <div class='blog-main'>
             <%- body %>
           </div>
