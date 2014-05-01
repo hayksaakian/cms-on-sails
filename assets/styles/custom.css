@@ -2,16 +2,20 @@ body {
   background-image: url("http://i.imgur.com/xskrTUY.png");
 }
 
+.phone-number::before {
+  content: "(206) ";
+}
+
 .small-caps {
   text-transform: uppercase;
 }
 
 @media (max-width: 992px) {
-  .flexlist li{
-    display: inline;
-  }
   .flexlist li::after{
-    content: " - ";
+    content: " ";
+  }
+  .flexlist li:last-child::after{
+    content: "";
   }
   /*
   add exception for last child
@@ -24,11 +28,14 @@ body {
     margin-bottom: 6px;
   }
 */
+  .flexlist li:first-child {
+    display: block;
+  }
+  .flexlist li {
+    display: inline;
+  }
 }
 @media (max-width: 768px) {
-  .flexlist li{
-    /*display: block;*/
-  }
   .flexlist li::after{
     content: "";
   }
@@ -47,12 +54,29 @@ body {
   .affix-bottom {
       position: absolute;
   }
+  .sidenav{
+    width: 212.500px; 
+    position: fixed; 
+    /*margin: -135px 0 0 410px;*/
+  }
+  .flexlist li {
+    display: block;
+    margin-bottom: 5px;
+  }
 }
-/*
+
+.list-collapse li {
+  display: inline-block;
+}
+
+.list-collapse li:first-child {
+  display: block;
+}
+
 .sidebar {
-  margin-top: 16px;
+  display: block;
+  text-align: right;
 }
-*/
 
 .title-box {
   display: table;

@@ -32,43 +32,51 @@
     <link rel="stylesheet" href="/styles/blog.css">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/styles/signin.css">
+    <link rel="stylesheet" href="/styles/social-buttons.css">
     <!--STYLES END-->
   </head>
 
-  <body data-spy="scroll" data-target="#affix-nav">
+  <body>
 
     <div class='container'>
       <!-- Include the view file for the current controller/route -->
       <div class='row'>
-        <div id='affix-nav' class='sidebar col-md-3'> 
-          <nav data-spy="affix" data-offset-top="16" class='nav sidenav'>
-            <div class="title-box media">
-              <img class="img-circle img-thumbnail pull-left" src="/images/hayk.jpeg">
-              <h3 class="text-muted layout-title"><a href="/">Hayk Saakian</a></h3>
+        <div class='col-md-3'> 
+          <nav class='nav sidenav'>
+            <div class='title-box-container'>
+              <div class="title-box media">
+                <img class="img-circle img-thumbnail pull-left" src="/images/hayk.jpeg">
+                <h3 class="text-muted layout-title"><a href="/">Hayk Saakian</a></h3>
+              </div>
             </div>
-
             <div class='well sidebar sidebar-module sidebar-module-inset'>
               <!-- <h6 class='small-caps'>Contact me</h6> -->
               <ul class='list-unstyled flexlist'>
+                <!-- <li>Primary Contacts:</li> -->
                 <li>
-                  <small>fn+"."+ln+"@gmail.com"</small>
+                  <a class='btn btn-xs btn-github' href="#"><i class="fa fa-envelope"></i> first.last@gmail.com</a>
                 </li>
                 <li>
-                  <a href="http://twitter.com/hayksaakian">twitter/hayksaakian</a>
+                  <a class='btn btn-xs btn-skype' href="#"><i class='fa fa-phone'></i> <span class='phone-number'>883-7226</span></a>
                 </li>
                 <li>
-                  <a href="https://github.com/hayksaakian">github/hayksaakian</a>
+                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/hayksaakian"><i class="fa fa-twitter"></i> @hayksaakian</a>
                 </li>
                 <li>
-                  (TwoOhSix) 883-7226
+                  <h4><a href="/contact">Contact Me</a></h4>
+                </li>
+                <li>
+                  <h4><a href="/about">About Me</a></h4>
                 </li>
               </ul>
+              
             </div>
           </nav>
         </div>
-        <div class='col-md-8'>
+        <div class='col-md-9'>
           <% if (flash && flash.err) { %>
             <ul class='alert'>
               <% Object.keys(flash.err).forEach(function(error){ %>  
@@ -80,8 +88,6 @@
           <div class='blog-main'>
             <%- body %>
           </div>
-        </div>
-        <div class='col-md-1'>          
         </div>
       </div>
       
