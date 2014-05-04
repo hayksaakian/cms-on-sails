@@ -13,12 +13,13 @@ module.exports = {
 
   index: function (req, res) {
     // console.log(isAuthenticated)
-    Article.find().sort('id DESC').exec(function (err, articles){
+    Article.find().sort('createdAt DESC').exec(function (err, articles){
       if (err) return next(err);
       // console.log(articles)
-      res.view('article/index', {
-        articles: (articles || [])
-      })
+      res.json(articles)
+      // res.view('article/index', {
+      //   articles: (articles || [])
+      // })
     })
   },
 
