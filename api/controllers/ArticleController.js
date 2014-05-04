@@ -13,6 +13,8 @@ module.exports = {
 
   index: function (req, res) {
     // console.log(isAuthenticated)
+    // this kind of sorting is broken locally
+    // https://github.com/balderdashy/sails-disk/issues/19
     Article.find().sort('createdAt DESC').exec(function (err, articles){
       if (err) return next(err);
       // console.log(articles)
