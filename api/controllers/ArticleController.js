@@ -16,10 +16,14 @@ module.exports = {
     Article.find().sort('createdAt DESC').exec(function (err, articles){
       if (err) return next(err);
       // console.log(articles)
-      res.json(articles)
-      // res.view('article/index', {
-      //   articles: (articles || [])
-      // })
+      // console.log(Object.keys(req))
+      // console.log(Object.keys(req.options))
+      // console.log(Object.keys(req.params))
+      // console.log(req.wantsJSON)
+      // res.json(articles)
+      res.view('article/index', {
+        articles: (articles || [])
+      })
     })
   },
 
