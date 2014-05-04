@@ -37,6 +37,16 @@
     <link rel="stylesheet" href="/styles/signin.css">
     <link rel="stylesheet" href="/styles/social-buttons.css">
     <!--STYLES END-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-50649528-1', 'hayksaakian.com');
+      ga('send', 'pageview');
+
+    </script>
   </head>
 
   <body>
@@ -57,19 +67,23 @@
               <ul class='list-unstyled flexlist'>
                 <!-- <li>Primary Contacts:</li> -->
                 <li>
-                  <a class='btn btn-xs btn-github' href="#"><i class="fa fa-envelope"></i> first.last@gmail.com</a>
+                  <i class="fa fa-envelope"></i> first.last@gmail.com
                 </li>
                 <li>
-                  <a class='btn btn-xs btn-skype' href="#"><i class='fa fa-phone'></i> <span class='phone-number'>883-7226</span></a>
+                  <i class='fa fa-phone'></i> <span class='phone-number'>883-7226</span>
                 </li>
-                <li>
-                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/hayksaakian"><i class="fa fa-twitter"></i> @hayksaakian</a>
-                </li>
+              </ul>
+              <ul class='list-unstyled flexlist'>
                 <li>
                   <h4><a href="/contact">Contact Me</a></h4>
                 </li>
                 <li>
                   <h4><a href="/about">About Me</a></h4>
+                </li>
+              </ul>
+              <ul class='list-unstyled flexlist'>
+                <li>
+                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/hayksaakian"><i class="fa fa-twitter"></i> @hayksaakian</a>
                 </li>
               </ul>
               
@@ -141,6 +155,7 @@
           + Use a different preprocessor, like TypeScript
 
     -->
+
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>

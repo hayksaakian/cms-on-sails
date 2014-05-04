@@ -10,6 +10,14 @@ body {
   text-transform: uppercase;
 }
 
+.flexlist h4 {
+  display: inline-block;
+}
+
+.flexlist {
+  text-align: center;
+}
+
 @media (max-width: 992px) {
   .flexlist li::after{
     content: " ";
@@ -28,16 +36,23 @@ body {
     margin-bottom: 6px;
   }
 */
-  .flexlist li:first-child {
-    display: block;
-  }
+
   .flexlist li {
-    display: inline;
+    display: inline-block;
   }
 }
 @media (max-width: 768px) {
   .flexlist li::after{
     content: "";
+  }
+  .flexlist li {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin: auto 5px;
+  }
+  .sidebar {
+    display: block;
+    float: none !important;
   }
 }
 
@@ -59,6 +74,9 @@ body {
     position: fixed; 
     /*margin: -135px 0 0 410px;*/
   }
+  .sidebar {
+    float: none;
+  }
   .flexlist li {
     display: block;
     margin-bottom: 5px;
@@ -75,7 +93,11 @@ body {
 
 .sidebar {
   display: block;
-  text-align: right;
+  float: right;
+}
+
+.title-box-container {
+  display: inline-block;
 }
 
 .title-box {
