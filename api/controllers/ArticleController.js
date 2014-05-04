@@ -24,7 +24,8 @@ module.exports = {
       // console.log(req.wantsJSON)
       // res.json(articles)
       res.view('article/index', {
-        articles: (articles || [])
+        articles: (articles || []),
+        page_title: "Articles"
       })
     })
   },

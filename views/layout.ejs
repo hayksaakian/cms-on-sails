@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hayk Saakian - Entrepreneur and Software Developer</title>
+    <title><% 
+    full_title = "Hayk Saakian - Entrepreneur and Software Developer" 
+    if(typeof(page_title) == typeof("string")){
+      full_title = page_title + " - " + full_title
+    }
+    %>
+    <%= full_title %>
+  </title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
