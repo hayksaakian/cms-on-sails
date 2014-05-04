@@ -9,7 +9,7 @@ module.exports = {
   about: function(req, res){
     res.view();
   },
-  static: function(req, res){
+  contact: function(req, res){
     res.view();
   } 
 };
