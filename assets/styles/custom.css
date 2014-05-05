@@ -18,33 +18,7 @@ body {
   text-align: center;
 }
 
-@media (max-width: 992px) {
-  .flexlist li::after{
-    content: " ";
-  }
-  .flexlist li:last-child::after{
-    content: "";
-  }
-  /*
-  add exception for last child
-  */
-  .affix {
-    position: inherit;
-  }
-/*  
-  .title-box {
-    margin-bottom: 6px;
-  }
-*/
-
-  .flexlist li {
-    display: inline-block;
-  }
-}
 @media (max-width: 768px) {
-  .flexlist li::after{
-    content: "";
-  }
   .flexlist li {
     display: inline-block;
     margin-bottom: 5px;
@@ -55,7 +29,14 @@ body {
   }
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) {
+  .affix {
+    position: inherit;
+  }
+
+  .flexlist li {
+    display: inline-block;
+  }
   .sidebar {
     float: right;
   }
