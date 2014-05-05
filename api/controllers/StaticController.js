@@ -7,9 +7,9 @@
 
 module.exports = {
   about: function(req, res){
-    res.view();
+    res.view({page_title: 'About'});
   },
   contact: function(req, res){
-    res.view();
+    res.view({page_title: 'Contact'});
   } 
 };

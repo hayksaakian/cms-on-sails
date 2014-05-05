@@ -23,9 +23,10 @@ module.exports = {
       // console.log(Object.keys(req.params))
       // console.log(req.wantsJSON)
       // res.json(articles)
+      articles = articles || []
       res.view('article/index', {
-        articles: (articles || []),
-        page_title: "Articles"
+        articles: articles,
+        page_title: "business, code, and problem solving in " + articles.length + " articles"
       })
     })
   },
@@ -43,7 +44,7 @@ module.exports = {
       })
       return [article, comments]
     }).spread(function (article, comments) {
-      res.view({article: article, comments: comments});
+      res.view({article: article, comments: comments, page_title: article.title});
     }).fail(function(err){
       return next(err);
       res.redirect('/');
@@ -55,7 +56,7 @@ module.exports = {
    */
 
   new: function (req, res) {
-    return res.view();
+    return res.view({page_title: 'New Article'});
   },
 
   // /**

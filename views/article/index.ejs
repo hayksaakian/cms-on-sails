@@ -1,15 +1,16 @@
 <div class="blog-header">
+  <h1>
   <p class="lead blog-description">
-    <em>business, code, and problem solving in <%= articles.length %> articles</em>
-
-<% if(req.session.authenticated){ %>
-<span class='pull-right'>
-  <a href="/article/new">New Article</a> |
-  <a href="/session/destroy">Sign Out</a>
-</span>
-<% } %>
-
+    <em><%= page_title %></em>
+    <% if(req.session.authenticated){ %>
+    <span class='pull-right'>
+      <a href="/article/new">New Article</a> |
+      <a href="/session/destroy">Sign Out</a>
+    </span>
+    <% } %>
   </p>
+  </h1>
+
 </div>
 <% articles.forEach(function(article){ %>
   <%- partial('partials/article', {article: article}) %>

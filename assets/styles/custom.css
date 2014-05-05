@@ -52,7 +52,15 @@ body {
   }
   .sidebar {
     display: block;
-    float: none !important;
+  }
+}
+
+@media (max-width: 992px){
+  .sidebar {
+    float: right;
+  }
+  .title-box-container {
+    float: left;
   }
 }
 
@@ -74,9 +82,6 @@ body {
     position: fixed; 
     /*margin: -135px 0 0 410px;*/
   }
-  .sidebar {
-    float: none;
-  }
   .flexlist li {
     display: block;
     margin-bottom: 5px;
@@ -93,7 +98,6 @@ body {
 
 .sidebar {
   display: block;
-  float: right;
 }
 
 .title-box-container {
@@ -107,6 +111,7 @@ body {
 .layout-title {
   display: table-cell;
   vertical-align: middle;
+  font-size: 26px;
 }
 
 .comment {
