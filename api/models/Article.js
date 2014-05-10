@@ -7,12 +7,16 @@
 
 var moment = require('moment')
 var markdown = require('markdown').markdown;
+var scrub = require('url-seo-scrubber');
 
 module.exports = {
 
   attributes: {
 
     title : { type: 'string' },
+    cleanTitle: function(){
+      return scrub(this.title);
+    },
 
     body : { type: 'string' },
 
