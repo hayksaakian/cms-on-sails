@@ -10,6 +10,7 @@ var RSS = require('rss');
 module.exports = {
   
   feed: function (req, res){
+    rootDomain = "http://hayksaakian.com"
     // res.send('what')
     // console.log(req.url)
     // console.log(req.originalUrl)
@@ -27,12 +28,10 @@ var feed = new RSS({
     title: 'title',
     description: 'description',
     feed_url: req.originalUrl,
-    site_url: 'http://hayksaakian.com',
-    image_url: 'http://hayksaakian.com/icon.png',
+    site_url: rootDomain,
+    image_url: rootDomain+'icon.png',
     // docs: 'http://hayksaakian.com/rss/docs.html',
     author: 'Hayk Saakian',
-    managingEditor: 'Hayk Saakian',
-    webMaster: 'Hayk Saakian',
     copyright: '2014 Hayk Saakian',
     language: 'en',
     pubDate: pubDate,
@@ -43,7 +42,7 @@ _.each(articles, function(article){
 feed.item({
     title: article.title,
     description: article.bodyHTML(),
-    url: "/article/"+article.id+"/"+article.title, // link to the item
+    url: rootDomain+"/article/"+article.id+"/"+article.title, // link to the item
     // author: 'Guest Author', // optional - defaults to feed author property
     date: article.createdAt, // any format that js Date can parse.
     // lat: 33.417974, //optional latitude field for GeoRSS
