@@ -31,7 +31,6 @@ var feed = new RSS({
     site_url: rootDomain,
     image_url: rootDomain+'icon.png',
     // docs: 'http://hayksaakian.com/rss/docs.html',
-    author: 'Hayk Saakian',
     // managingEditor: 'hayk@skyrealre.com',
     // webMaster: 'hayk@skyrealre.com',
     copyright: '2014 Hayk Saakian',
@@ -42,6 +41,7 @@ var feed = new RSS({
 
 _.each(articles, function(article){
 feed.item({
+    author: 'Hayk Saakian',
     title: article.title,
     description: article.bodyHTML(),
     url: rootDomain+"/article/"+article.id+"/"+article.cleanTitle(), // link to the item
