@@ -1,24 +1,36 @@
 <div class='blog-post'>
-
+  <% 
+   onlySnippet = req.path.indexOf(article.id) === -1;
+  %>
   <!-- could also be req.options.action -->
-  <% if(req.path.indexOf(article.id) === -1){ %>
-
-  <h2 class='blog-post-title'>
-    <a href="/article/<%= article.id %>/<%= article.title %>">
+  <% if(onlySnippet){ %>
+    <h2 class='blog-post-title'>
+      <a href="/article/<%= article.id %>/<%= article.title %>">
+        <%= article.title %>
+      </a>
+    </h2>
+  <% } else { %>
+    <h1 class='blog-post-title'>
       <%= article.title %>
-    </a>
-  </h2>
-
-  <% }else{ %>
-
-  <h1 class='blog-post-title'>
-    <%= article.title %>
-  </h1>
-
+    </h1>
   <% } %>
-  <div class="blog-post-body"><%- article.bodyHTML() %></div>
+  <div class="blog-post-body">
+    <!-- 'click to see more' -->
+    <%- article.bodyHTML() %>
+  </div>
   <% if(req.session.authenticated){ %>
-  <small><a href="/article/<%= article.id %>/edit">Edit Article</a></small>
+    <small><a href="/article/<%= article.id %>/edit">Edit Article</a></small>
   <% } %>
   <p class="blog-post-meta">published <%= article.published_at() %></p>
+  <div class="blog-post-foot">
+    <% if(onlySnippet){ %>
+      <a href="/article/<%= article.id %>/<%= article.title %>/#comments">
+        <%= article.comments.length %> Comments
+      </a>
+    <% } %>
+    <div class='tweet-button pull-right'>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://hayksaakian.com/article/<%= article.id %>/<%= article.title %>" data-text="<%= article.title %>" data-via="hayksaakian">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+  </div><!-- foot -->
 </div>

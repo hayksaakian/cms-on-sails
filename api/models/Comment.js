@@ -6,6 +6,7 @@
 */
 
 var moment = require('moment')
+var markdown = require('markdown').markdown;
 
 module.exports = {
 
@@ -17,6 +18,9 @@ module.exports = {
     },
     published_at: function(){
       return moment(this.createdAt).format('LLL')
+    },
+    textHTML: function(){
+      return markdown.toHTML(this.text)
     }
   }
 };

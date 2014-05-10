@@ -1,5 +1,20 @@
-<div class='comment media well well-sm'>
-  <h4 class='media-heading'><%= comment.owner %></h4>
-  <p><%= comment.text %></p>
-  <small class="text-muted">published <%= comment.published_at() %></small>
+<div class='comment media well well-sm' id="comment-<%= comment.id %>">
+  <div class='comment-header media-heading'>
+    <cite>
+      <% if(comment.website){ %>
+        <a href="<%= comment.website %>" rel="external nofollow">
+          <%= comment.owner %>
+        </a>
+      <% }else{ %>
+        <%= comment.owner %>
+      <% } %>
+    </cite>
+    <small class="text-muted">
+      <a href="<%= req.path %>/#comment-<%= comment.id %>">
+        <%= comment.published_at() %>
+      </a>
+    </small>
+  </div>
+  <p><%- comment.text %></p>
+  <!-- <a href="">reply</a> -->
 </div>

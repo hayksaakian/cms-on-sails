@@ -15,7 +15,7 @@ module.exports = {
     // console.log(isAuthenticated)
     // this kind of sorting is broken locally
     // https://github.com/balderdashy/sails-disk/issues/19
-    Article.find().sort('createdAt DESC').exec(function (err, articles){
+    Article.find().sort('createdAt DESC').populate('comments').exec(function (err, articles){
       if (err) return next(err);
       // console.log(articles)
       // console.log(Object.keys(req))
