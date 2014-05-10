@@ -29,12 +29,16 @@ module.exports.routes = {
   '/': 'ArticleController.index',
   '/about': 'StaticController.about',
   '/contact': 'StaticController.contact',
+  'get /article' : 'ArticleController.index',
   'post /article' : 'ArticleController.create',
   'get /article/new' : 'ArticleController.new',
   'get /article/:id/edit' : 'ArticleController.edit',
   'post /article/:id/update' : 'ArticleController.update',
   'get /article/:id' : 'ArticleController.show',
   'get /article/:id/:slug?' : 'ArticleController.show',
+  
+  'get /feed' : 'FeedController.feed',
+
   'post /session' : 'SessionController.create',
   'get /admin' : 'SessionController.new',
   '/session/destroy' : 'SessionController.destroy'

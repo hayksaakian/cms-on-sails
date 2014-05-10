@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+  
   about: function(req, res){
     res.view({page_title: 'About'});
   },

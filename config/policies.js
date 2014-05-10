@@ -20,7 +20,8 @@ module.exports.policies = {
   'ArticleController':{
   	'*': ['sessionAuth', 'flash'],
   	'show' : 'flash',
-  	'index': 'flash'
+  	'index': 'flash',
+    'feed' : true
   }
 
 
