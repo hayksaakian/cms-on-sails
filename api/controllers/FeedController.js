@@ -44,7 +44,7 @@ _.each(articles, function(article){
 feed.item({
     title: article.title,
     description: article.bodyHTML(),
-    url: rootDomain+"/article/"+article.id+"/"+article.title, // link to the item
+    url: rootDomain+"/article/"+article.id+"/"+article.cleanTitle(), // link to the item
     // author: 'Guest Author', // optional - defaults to feed author property
     date: article.createdAt, // any format that js Date can parse.
     // lat: 33.417974, //optional latitude field for GeoRSS
