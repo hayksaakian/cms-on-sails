@@ -9,8 +9,8 @@
         <%= comment.owner %>
       <% } %>
     </cite>
-    <small class="text-muted">
-      <a href="<%= req.path %>/#comment-<%= comment.id %>">
+    <small>
+      <a href="<%= req.path %>/#comment-<%= comment.id %>" class='text-muted'>
         <%= comment.published_at() %>
       </a>
     </small>
