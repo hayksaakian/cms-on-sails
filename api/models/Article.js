@@ -14,8 +14,15 @@ module.exports = {
   attributes: {
 
     title : { type: 'string' },
+    clean_title : { type: 'string' },
     cleanTitle: function(){
-      return scrub(this.title);
+      if(typeof(this.clean_title) !== typeof('string')){
+        this.clean_title = scrub(this.title)
+        this.save(function(err) {
+          console.log(err);
+        });
+      }
+      return this.clean_title
     },
 
     body : { type: 'string' },
@@ -29,6 +36,11 @@ module.exports = {
     bodyHTML: function(){
       return markdown.toHTML(this.body)
     }
+  },
+  // Lifecycle Callbacks
+  beforeCreate: function(values, next) {
+    values.clean_title = scrub(this.title);
+    next();
   }
 };
 
