@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><% 
-    full_title = "Hayk Saakian - Entrepreneur and Software Developer" 
+    full_title = sails.config.sitesettings.base_page_title
     if(typeof(page_title) == typeof("string")){
       full_title = page_title + " - " + full_title
     }
@@ -50,7 +50,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-50649528-1', 'hayksaakian.com');
+      ga('create', '<%= sails.config.sitesettings.google_analytics_ua %>', '<%= sails.config.sitesettings.domain %>');
       ga('send', 'pageview');
 
     </script>
@@ -65,8 +65,8 @@
           <nav class='nav sidenav'>
             <div class='title-box-container'>
               <div class="title-box media">
-                <img class="img-circle img-thumbnail pull-left" src="/images/hayk.jpeg">
-                <h4 class="text-muted layout-title"><a href="/">Hayk Saakian</a></h4>
+                <img class="img-circle img-thumbnail pull-left" src="/images/logo.jpeg">
+                <h4 class="text-muted layout-title"><a href="/"><%= sails.config.sitesettings.website_title %></a></h4>
               </div>
             </div>
             <div class='well sidebar sidebar-module sidebar-module-inset'>
@@ -87,10 +87,19 @@
                 <li>
                   <h4><a href="/about">About Me</a></h4>
                 </li>
+                <% _.each(res.locals.pages, function(page){ %>
+                  <li>
+                    <h4>
+                      <a href='/<%= page.clean_title || page.id %>'>
+                        <%= page.title %>
+                      </a>
+                    </h4>
+                  </li>
+                <% }) %>
               </ul>
               <ul class='list-unstyled flexlist'>
                 <li>
-                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/hayksaakian"><i class="fa fa-twitter"></i> @hayksaakian</a>
+                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/<%= sails.config.sitesettings.twitter_username %>"><i class="fa fa-twitter"></i> @<%= sails.config.sitesettings.twitter_username %></a>
                 </li>
               </ul>
               
@@ -183,6 +192,6 @@ if(markdown_field !== null){
 }
     </script>
     <!-- Hello Bar -->
-    <script type="text/javascript" src="//s3.amazonaws.com/scripts.hellobar.com/5a22a6b401deb2bb94e4327e86dc92a610438938.js"></script>
+    <script type="text/javascript" src="//s3.amazonaws.com/scripts.hellobar.com/<%= sails.config.sitesettings.hello_bar_id %>.js"></script>
   </body>
 </html>

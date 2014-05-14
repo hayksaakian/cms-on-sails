@@ -1,0 +1,27 @@
+<form action="<%= action %>" method="<%= method %>">
+  <%
+    if (typeof(page) === 'undefined'){
+      page = {
+        title: '',
+        content: ''
+      }
+    }
+  %>
+
+  <div class='form-group'>
+    <input name='title' value='<%= page.title %>' placeholder='Title' type='text' class='form-control' autofocus>
+  </div>
+  <div class='form-group'>
+    <div id='epiceditor'></div>
+    <textarea name='content' placeholder='Content' type='text' rows='20' class='form-control' id='markdown_field'><%= page.content %></textarea>
+  </div>
+
+  <br>
+  <div class='control-group'>
+    <input type='submit' value='Publish Page' class='btn btn-lg'>
+  </div>
+  <div class='control-group'>
+    <!-- hidden inputs -->
+    <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+  </div>
+</form>

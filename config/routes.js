@@ -41,10 +41,24 @@ module.exports.routes = {
 
   'post /session' : 'SessionController.create',
   'get /admin' : 'SessionController.new',
-  '/session/destroy' : 'SessionController.destroy'
+  '/session/destroy' : 'SessionController.destroy',
 
   // Custom routes here...
 
+  'get /page':'PageController.index',
+  'post /page':'PageController.create',
+  'get /page/new':'PageController.new',
+  'get /page/:clean_title':'PageController.show',
+  'post /page/:clean_title':'PageController.update',
+  'get /page/:clean_title/edit':'PageController.edit',
+
+  // wow that's verbose
+  'delete /page/:clean_title':'PageController.destroy',
+  'post /page/:clean_title/delete':'PageController.destroy',
+  'post /page/:clean_title/destroy':'PageController.destroy',
+
+
+  'get /:clean_title':'PageController.show'
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched 
   // against Sails route blueprints.  See `config/blueprints.js` for configuration options

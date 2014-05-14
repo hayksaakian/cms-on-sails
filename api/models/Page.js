@@ -1,5 +1,5 @@
 /**
-* Article.js
+* Page.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -17,31 +17,28 @@ module.exports = {
       required: true 
     },
     clean_title : { type: 'string' },
-    cleanTitle: function(){
-      if(typeof(this.clean_title) !== typeof('string')){
-        this.clean_title = scrub(this.title)
-        this.save(function(err) {
-          console.log(err);
-        });
-      }
-      return this.clean_title
-    },
+    content : { type: 'string' },
 
-    body : { type: 'string' },
-
-    comments : {
-      collection: 'article'
-    },
     published_at: function(){
       return moment(this.createdAt).format('LLL')
     },
-    bodyHTML: function(){
-      return markdown.toHTML(this.body)
+    contentHTML: function(){
+      return markdown.toHTML(this.content)
     }
   },
   // Lifecycle Callbacks
   beforeCreate: function(values, next) {
+    console.log('beforeCreate')
+    console.log(scrub(values.title))
     values.clean_title = scrub(values.title);
+    console.log(values)
+    next();
+  },
+  // Lifecycle Callbacks
+  beforeUpdate: function(values, next) {
+    console.log('beforeUpdate')
+    values.clean_title = scrub(values.title);
+    console.log(values)
     next();
   }
 };

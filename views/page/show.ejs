@@ -1,0 +1,17 @@
+<h1>
+  <% if(req.session.authenticated){ %>
+    <a class='btn btn-sm btn-warning' href='/page/<%= page.clean_title || page.id %>/edit'>
+      Edit
+    </a>
+    <!-- todo make this is button to... yadda yadda -->
+    <form action='/page/<%= page.clean_title %>/delete' class="inline-form" method="post">
+      <div>
+        <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
+      </div>
+    </form>
+  <% }    %>
+  <%= page.title %>
+</h1>
+<div>
+  <%- page.contentHTML() %>
+</div>

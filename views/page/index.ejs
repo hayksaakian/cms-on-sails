@@ -1,0 +1,42 @@
+<h1>List of Pages</h1>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th>
+        <a class='btn btn-success' href='/page/new'>
+          New Page
+        </a>
+      </th>
+      <th>id</th>
+      <th>page title</th>
+      <th>created at</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% _.each(pages, function(page){ %>
+      <tr>
+        <td>
+          <a class='btn btn-sm btn-warning' href='/page/<%= page.clean_title || page.id %>/edit'>
+            Edit
+          </a>
+          <!-- todo make this is button to... yadda yadda -->
+          <form action='/page/<%= page.clean_title %>/delete' class="inline-form" method="post">
+            <div>
+              <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
+            </div>
+          </form>
+        </td>
+        <td><%= page.id %></td>
+        <td>
+          <a href='/<%= page.clean_title || page.id %>'>
+            <%= page.title %>
+          </a>
+        </td>
+        <td><%= page.published_at() %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

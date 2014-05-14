@@ -98,3 +98,9 @@ body {
 .comment {
   margin-bottom: 30px;
 }
+
+/* random css */
+.inline-form {
+  display: inline-block;
+}
+

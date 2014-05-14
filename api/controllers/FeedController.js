@@ -10,7 +10,7 @@ var RSS = require('rss');
 module.exports = {
   
   feed: function (req, res){
-    rootDomain = "http://hayksaakian.com"
+    rootDomain = sails.config.sitesettings.rootUrl();
     // res.send('what')
     // console.log(req.url)
     // console.log(req.originalUrl)
@@ -30,10 +30,10 @@ var feed = new RSS({
     feed_url: req.originalUrl,
     site_url: rootDomain,
     image_url: rootDomain+'icon.png',
-    // docs: 'http://hayksaakian.com/rss/docs.html',
+    // docs: sails.config.sitesettings.rootUrl()+'/rss/docs.html',
     // managingEditor: 'hayk@skyrealre.com',
     // webMaster: 'hayk@skyrealre.com',
-    copyright: '2014 Hayk Saakian',
+    copyright: '2014 '+sails.config.sitesettings.author,
     language: 'en',
     pubDate: pubDate,
     ttl: '60'
@@ -41,7 +41,7 @@ var feed = new RSS({
 
 _.each(articles, function(article){
 feed.item({
-    author: 'Hayk Saakian',
+    author: sails.config.sitesettings.author,
     title: article.title,
     description: article.bodyHTML(),
     url: rootDomain+"/article/"+article.id+"/"+article.cleanTitle(), // link to the item

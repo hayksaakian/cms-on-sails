@@ -16,12 +16,16 @@ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access) 
-  '*': 'flash',
+  '*': ['flash', 'sidebar'],
   'ArticleController':{
-  	'*': ['sessionAuth', 'flash'],
-  	'show' : 'flash',
-  	'index': 'flash',
-    'feed' : true
+    'new': ['sessionAuth', 'flash', 'sidebar'],
+    'edit': ['sessionAuth', 'flash', 'sidebar'],
+    'create': ['sessionAuth', 'flash', 'sidebar'],
+    'update': ['sessionAuth', 'flash', 'sidebar'],
+    'destroy': ['sessionAuth', 'flash', 'sidebar']
+    // not needed:
+    // show
+    // index
   }
 
 

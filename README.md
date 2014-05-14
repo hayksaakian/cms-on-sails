@@ -10,6 +10,10 @@ sails generate controller Article index show new edit
 
 Profit!
 
+# business
+authentication
+slugs for urls
+
 # controller
 CRUD article
 CRUD comment
@@ -28,6 +32,6 @@ set options in connections.js
 choose adaptor in models.js
 
 # todo:
-
-authentication
-slugs for urls
+authorization
+CRUD for the posts
+make sure HTML shows up properly in the page content
