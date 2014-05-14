@@ -50,7 +50,7 @@ module.exports = {
     })
   },
   update: function(req, res, next) {
-    Page.update({id: req.param('id')}, req.params.all(), function (err, page){
+    Page.update({clean_title: req.param('clean_title')}, req.params.all(), function (err, page){
       if (err) return next(err);
       // console.log(page)
       // flash.message = 'updated page'
@@ -59,6 +59,15 @@ module.exports = {
     })
   },
   destroy: function(req, res, next) {
-
+    Page.findOne({clean_title: req.param('clean_title') }).exec(function(err, page){
+    // Page.findOne({clean_title: req.param('clean_title')}).exec(function (err, page){
+      if (err) return next(err);
+      // console.log(page)
+      page = page || {};
+      
+      page.destroy(function (err) {
+        res.redirect('/page')
+      });
+    })
   }
 };

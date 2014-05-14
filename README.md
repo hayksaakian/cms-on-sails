@@ -22,9 +22,12 @@ override, and add redirects
 # models
 article
 comment
+page
 
 # views
-index, show, form, edit/new, partials (comment/article)
+article: index, show, form, edit/new, partials (comment/article)
+page: index, show, form, edit/new, partials
+-- markdown editor
 
 ## prepare database for prod
 add relevant database adaptor via npm
@@ -32,6 +35,5 @@ set options in connections.js
 choose adaptor in models.js
 
 # todo:
-authorization
-CRUD for the posts
-make sure HTML shows up properly in the page content
+authorization for page editing
+remove epic editor altogther

@@ -6,7 +6,10 @@
 */
 
 var moment = require('moment')
-var markdown = require('markdown').markdown;
+// var markdown = require('markdown').markdown;
+var marked = require('marked');
+
+// TODO sanitize: true in comment markup
 
 module.exports = {
 
@@ -20,7 +23,8 @@ module.exports = {
       return moment(this.createdAt).format('LLL')
     },
     textHTML: function(){
-      return markdown.toHTML(this.text)
+      // return markdown.toHTML(this.text)
+      return marked(this.text)
     }
   }
 };

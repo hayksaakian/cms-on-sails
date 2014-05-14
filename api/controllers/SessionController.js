@@ -9,7 +9,11 @@ var bcrypt = require('bcrypt')
 
 module.exports = {
 	'new': function (req, res, next) {
-    res.view('admin');
+    if(req.session.authenticated){
+      res.redirect('/page')
+    }else{
+      res.view('admin');
+    }
   },
   destroy: function (req, res, next) {
     req.session.authenticated = false;

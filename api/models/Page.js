@@ -6,7 +6,8 @@
 */
 
 var moment = require('moment')
-var markdown = require('markdown').markdown;
+// var markdown = require('markdown').markdown;
+var marked = require('marked');
 var scrub = require('url-seo-scrubber');
 
 module.exports = {
@@ -18,12 +19,22 @@ module.exports = {
     },
     clean_title : { type: 'string' },
     content : { type: 'string' },
+    markup : { type: 'string' },
+    final_content: function () {
+      if(this.markup === 'markdown'){
+        return marked(this.content)
+      }else{
+        // if markup == 'html'
+        return this.content
+      }
+    },
 
     published_at: function(){
       return moment(this.createdAt).format('LLL')
     },
     contentHTML: function(){
-      return markdown.toHTML(this.content)
+      // return markdown.toHTML(this.content)
+      return marked(this.content)
     }
   },
   // Lifecycle Callbacks

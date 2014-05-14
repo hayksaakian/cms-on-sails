@@ -6,7 +6,8 @@
 */
 
 var moment = require('moment')
-var markdown = require('markdown').markdown;
+// var markdown = require('markdown').markdown;
+var marked = require('marked');
 var scrub = require('url-seo-scrubber');
 
 module.exports = {
@@ -36,7 +37,8 @@ module.exports = {
       return moment(this.createdAt).format('LLL')
     },
     bodyHTML: function(){
-      return markdown.toHTML(this.body)
+      // return markdown.toHTML(this.body)
+      return marked(this.body)
     }
   },
   // Lifecycle Callbacks

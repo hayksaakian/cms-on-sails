@@ -26,6 +26,17 @@ module.exports.policies = {
     // not needed:
     // show
     // index
+  },
+  'PageController':{
+    'new': ['sessionAuth', 'flash', 'sidebar'],
+    'edit': ['sessionAuth', 'flash', 'sidebar'],
+    'create': ['sessionAuth', 'flash', 'sidebar'],
+    'update': ['sessionAuth', 'flash', 'sidebar'],
+    'destroy': ['sessionAuth', 'flash', 'sidebar'],
+    'index': ['sessionAuth', 'flash', 'sidebar'],
+    // not needed:
+    // show
+    // index
   }
 
 

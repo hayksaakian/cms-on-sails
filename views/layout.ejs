@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/custom.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
+    <link rel="stylesheet" href="/styles/ghostdown.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/styles/signin.css">
     <link rel="stylesheet" href="/styles/social-buttons.css">
@@ -73,6 +74,10 @@
               <!-- <h6 class='small-caps'>Contact me</h6> -->
               <ul class='list-unstyled flexlist'>
                 <!-- <li>Primary Contacts:</li> -->
+                <% if(req.session.authenticated) { %>
+                  <li><a class='btn btn-warning' href="/page">Edit Pages</a></li>
+                <% }%>
+
                 <li>
                   <i class="fa fa-envelope"></i> first.last@gmail.com
                 </li>
@@ -173,12 +178,13 @@
     -->
 
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/epiceditor.js"></script>
+    <script src="/js/ghostdown.js"></script>
     <!--SCRIPTS END-->
- <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -192,6 +198,8 @@ if(markdown_field !== null){
 }
     </script>
     <!-- Hello Bar -->
+    <% if(req.session.authenticated){}else{ %>
     <script type="text/javascript" src="//s3.amazonaws.com/scripts.hellobar.com/<%= sails.config.sitesettings.hello_bar_id %>.js"></script>
+    <% } %>
   </body>
 </html>

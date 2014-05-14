@@ -23,11 +23,11 @@
     "grunt-contrib-less": "~0.10.0",
     "grunt-contrib-coffee": "~0.10.1",
     "moment": "^2.6.0",
-    "markdown": "^0.5.0",
     "sails-mongo": "^0.10.0-rc3",
     "bcrypt": "^0.7.8",
     "rss": "^0.3.2",
-    "url-seo-scrubber": "0.0.2"
+    "url-seo-scrubber": "0.0.2",
+    "marked": "^0.3.2"
   },
   "scripts": {
     "start": "node app.js",
