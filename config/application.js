@@ -7,6 +7,9 @@ module.exports.sitesettings = {
     'http://'+this.domain
   },
   contact_email: 'first.last@gmail.com',
+
+  phone_number: '883-7226'
+
   base_page_title: 'Hayk Saakian - Entrepreneur and Software Developer',
 
   twitter_username: 'hayksaakian',
