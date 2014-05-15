@@ -19,7 +19,8 @@ module.exports = {
     },
     clean_title : { type: 'string' },
     content : { type: 'string' },
-    markup : { type: 'string' },
+    markup : { type: 'string',
+    defaultsTo: 'html' },
     final_content: function () {
       if(this.markup === 'markdown'){
         return marked(this.content)
