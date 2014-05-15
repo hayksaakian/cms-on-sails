@@ -3,9 +3,7 @@ module.exports.sitesettings = {
   author: 'Hayk Saakian',
   website_title: 'Hayk Saakian',
   domain: 'hayksaakian.com',
-  rootUrl: function () {
-    'http://'+this.domain
-  },
+  
   contact_email: 'first.last@gmail.com',
 
   phone_number: '883-7226',

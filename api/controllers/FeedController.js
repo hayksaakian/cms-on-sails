@@ -10,7 +10,7 @@ var RSS = require('rss');
 module.exports = {
   
   feed: function (req, res){
-    rootDomain = sails.config.sitesettings.rootUrl();
+    rootDomain = 'http://'+sails.config.sitesettings.domain;
     // res.send('what')
     // console.log(req.url)
     // console.log(req.originalUrl)
@@ -30,7 +30,7 @@ var feed = new RSS({
     feed_url: req.originalUrl,
     site_url: rootDomain,
     image_url: rootDomain+'icon.png',
-    // docs: sails.config.sitesettings.rootUrl()+'/rss/docs.html',
+    // docs: 'http://'+sails.config.sitesettings.domain+'/rss/docs.html',
     // managingEditor: 'hayk@skyrealre.com',
     // webMaster: 'hayk@skyrealre.com',
     copyright: '2014 '+sails.config.sitesettings.author,
