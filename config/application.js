@@ -8,7 +8,7 @@ module.exports.sitesettings = {
   },
   contact_email: 'first.last@gmail.com',
 
-  phone_number: '883-7226'
+  phone_number: '883-7226',
 
   base_page_title: 'Hayk Saakian - Entrepreneur and Software Developer',
 
