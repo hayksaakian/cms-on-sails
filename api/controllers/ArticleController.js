@@ -93,11 +93,12 @@ module.exports = {
    */
 
   update: function (req, res) {
-    Article.update({id: req.param('id')}, req.params.all(), function (err, article){
+    Article.update({id: req.param('id')}, req.params.all(), function (err, articles){
       if (err) return next(err);
       // console.log(articles)
       // flash.message = 'updated article'
-      res.redirect('article');
+      var article = articles[0]
+      res.redirect('/article/'+article.id+'/'+article.clean_title);
       // res.send(article);
     })
   },

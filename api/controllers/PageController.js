@@ -50,11 +50,13 @@ module.exports = {
     })
   },
   update: function(req, res, next) {
-    Page.update({clean_title: req.param('clean_title')}, req.params.all(), function (err, page){
+    Page.update({clean_title: req.param('clean_title')}, req.params.all(), function (err, pages){
       if (err) return next(err);
       // console.log(page)
       // flash.message = 'updated page'
-      res.redirect(page.clean_title);
+      var page = pages[0]
+      console.log(page)
+      res.redirect('/'+page.clean_title);
       // res.json(page);
     })
   },
