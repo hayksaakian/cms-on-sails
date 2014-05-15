@@ -54,7 +54,7 @@ module.exports = {
       if (err) return next(err);
       // console.log(page)
       // flash.message = 'updated page'
-      res.redirect('page');
+      res.redirect(page.clean_title);
       // res.json(page);
     })
   },

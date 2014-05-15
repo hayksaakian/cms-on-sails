@@ -84,14 +84,18 @@
                 <li>
                   <i class='fa fa-phone'></i> <span class='phone-number'><%= sails.config.sitesettings.phone_number %></span>
                 </li>
-              </ul>
-              <ul class='list-unstyled flexlist'>
                 <li>
+                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/<%= sails.config.sitesettings.twitter_username %>"><i class="fa fa-twitter"></i> @<%= sails.config.sitesettings.twitter_username %></a>
+                </li>
+              </ul>
+              
+              <ul class='list-unstyled flexlist'>
+<!--                 <li>
                   <h4><a href="/contact">Contact Me</a></h4>
                 </li>
                 <li>
                   <h4><a href="/about">About Me</a></h4>
-                </li>
+                </li> -->
                 <% _.each(res.locals.pages, function(page){ %>
                   <li>
                     <h4>
@@ -102,12 +106,6 @@
                   </li>
                 <% }) %>
               </ul>
-              <ul class='list-unstyled flexlist'>
-                <li>
-                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/<%= sails.config.sitesettings.twitter_username %>"><i class="fa fa-twitter"></i> @<%= sails.config.sitesettings.twitter_username %></a>
-                </li>
-              </ul>
-              
             </div>
           </nav>
         </div>

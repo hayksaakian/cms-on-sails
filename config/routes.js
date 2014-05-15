@@ -27,8 +27,8 @@ module.exports.routes = {
   // 
   // (Alternatively, remove this and add an `index.html` file in your `assets` directory)
   '/': 'ArticleController.index',
-  '/about': 'StaticController.about',
-  '/contact': 'StaticController.contact',
+  // '/about': 'StaticController.about',
+  // '/contact': 'StaticController.contact',
   'get /article' : 'ArticleController.index',
   'post /article' : 'ArticleController.create',
   'get /article/new' : 'ArticleController.new',
