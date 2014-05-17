@@ -12,6 +12,8 @@ module.exports.sitesettings = {
 
   twitter_username: 'hayksaakian',
 
+  instagram_id: '',
+
   google_plus_id: '+HaykSaakian',
 
   google_analytics_ua: 'UA-50649528-1',

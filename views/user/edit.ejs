@@ -1,0 +1,18 @@
+<form action='/admin/update' method='post' class="form-signin" role="form">
+  <h2 class="form-signin-heading">Edit User</h2>
+
+  <input name='name' value="<%= user.name %>" type="name" class="form-control" placeholder="Name" required>
+  
+  <input name='email' value="<%= user.email %>" type="email" class="form-control" placeholder="Email address" required autofocus>
+  <input name='password' type="password" class="form-control" placeholder="Current Password" required>
+
+  <input name='newPassword' type="password" class="form-control" placeholder="New Password">
+  <input name='confirmation' type="password" class="form-control" placeholder="Confirm New Password">
+<!--   <label class="checkbox">
+    <input type="checkbox" value="remember-me"> Remember me
+  </label> -->
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+  <!-- hidden inputs -->
+  <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+  <input type='hidden' name='id' value='<%= user.id %>'>
+</form>

@@ -41,6 +41,8 @@ module.exports.routes = {
 
   'post /session' : 'SessionController.create',
   'get /admin' : 'SessionController.new',
+  'get /admin/edit' : 'UserController.edit',
+  'post /admin/update' : 'UserController.update',
   '/session/destroy' : 'SessionController.destroy',
 
   // Custom routes here...
