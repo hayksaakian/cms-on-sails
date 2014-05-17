@@ -36,7 +36,10 @@ module.exports.routes = {
   'post /article/:id/update' : 'ArticleController.update',
   'get /article/:id' : 'ArticleController.show',
   'get /article/:id/:slug?' : 'ArticleController.show',
-  
+
+  'post /comment' : 'CommentController.create',
+  'post /comment/:id/delete' : 'CommentController.destroy',
+
   'get /feed' : 'FeedController.feed',
 
   'post /session' : 'SessionController.create',

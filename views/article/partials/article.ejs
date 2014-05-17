@@ -16,7 +16,11 @@
   <% } %>
   <div class="blog-post-body">
     <!-- 'click to see more' -->
-    <%- article.bodyHTML() %>
+    <% if(typeof(snippet) !== typeof(undefined)){ %>
+      snippet!
+    <% }else{ %>
+      <%- article.bodyHTML() %>
+    <% } %>
   </div>
   <% if(req.session.authenticated){ %>
     <small><a href="/article/<%= article.id %>/edit">Edit Article</a></small>

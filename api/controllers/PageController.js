@@ -61,6 +61,7 @@ module.exports = {
     })
   },
   destroy: function(req, res, next) {
+    console.log('made it in')
     Page.findOne({clean_title: req.param('clean_title') }).exec(function(err, page){
     // Page.findOne({clean_title: req.param('clean_title')}).exec(function (err, page){
       if (err) return next(err);

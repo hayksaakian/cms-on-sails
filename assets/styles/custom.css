@@ -108,3 +108,7 @@ body {
 .logo-image {
   width: 100px;
 }
+
+.hellobar_logo{
+  display: none !important;
+}
