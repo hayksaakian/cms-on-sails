@@ -3,7 +3,7 @@ module.exports.sitesettings = {
   author: 'Hayk Saakian',
   website_title: 'Hayk Saakian',
   domain: 'hayksaakian.com',
-  logo_url: '/images/logo.jpeg'
+  logo_url: '/images/logo.jpeg',
   
   contact_email: 'first.last@gmail.com',
 
