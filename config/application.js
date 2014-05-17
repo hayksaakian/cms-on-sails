@@ -10,6 +10,8 @@ module.exports.sitesettings = {
 
   base_page_title: 'Hayk Saakian - Entrepreneur and Software Developer',
 
+  blog_tagline: 'Business, Code, and Problem Solving',
+
   twitter_username: 'hayksaakian',
 
   instagram_id: '',

@@ -26,7 +26,7 @@ module.exports = {
       articles = articles || []
       res.view('article/index', {
         articles: articles,
-        page_title: "business, code, and problem solving in " + articles.length + " articles"
+        page_title: sails.config.sitesettings.blog_tagline+" in " + articles.length + " articles"
       })
     })
   },
