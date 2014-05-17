@@ -105,7 +105,7 @@
                 <% } %>
                 <% _.each(sails.config.sitesettings.social_sidebar, function(site){ %>
                   <li>
-                    <a class="btn btn-xs btn-<%= site.platform %>" href="<%= site.link %>"><i class="fa fa-<%= site.platform %>"></i> <%= site.platform %></a>
+                    <a class="btn btn-xs btn-<%= site.platform %>" href="<%= site.link %>"><i class="fa fa-<%= site.platform %>"></i> <%= site.display_name %></a>
                   </li>
                 <% }) %>
                 
