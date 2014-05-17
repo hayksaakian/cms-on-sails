@@ -93,12 +93,16 @@
               <!-- <h6 class='small-caps'>Contact me</h6> -->
               <ul class='list-unstyled flexlist'>
                 <!-- <li>Primary Contacts:</li> -->
-                <li>
-                  <i class="fa fa-envelope"></i> <%= sails.config.sitesettings.contact_email %>
-                </li>
-                <li>
-                  <i class='fa fa-phone'></i> <span class='phone-number'><%= sails.config.sitesettings.phone_number %></span>
-                </li>
+                <% if(sails.config.sitesettings.show_contact_email){ %>
+                  <li>
+                    <i class="fa fa-envelope"></i> <%= sails.config.sitesettings.contact_email %>
+                  </li>
+                <% } %>
+                <% if(sails.config.sitesettings.show_phone_number){ %>
+                  <li>
+                    <i class='fa fa-phone'></i> <span class='phone-number'><%= sails.config.sitesettings.phone_number %></span>
+                  </li>
+                <% } %>
                 <li>
                   <a class="btn btn-xs btn-twitter" href="http://twitter.com/<%= sails.config.sitesettings.twitter_username %>"><i class="fa fa-twitter"></i> @<%= sails.config.sitesettings.twitter_username %></a>
                 </li>

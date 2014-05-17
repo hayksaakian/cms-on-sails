@@ -4,9 +4,11 @@ module.exports.sitesettings = {
   website_title: 'Hayk Saakian',
   domain: 'hayksaakian.com',
   logo_url: '/images/logo.jpeg',
-  
+
+  show_contact_email: true,  
   contact_email: 'first.last@gmail.com',
 
+  show_phone_number: true,
   phone_number: '883-7226',
 
   base_page_title: 'Hayk Saakian - Entrepreneur and Software Developer',
