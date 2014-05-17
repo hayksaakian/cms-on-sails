@@ -7,9 +7,10 @@
     <form action='/page/<%= page.clean_title %>/delete' class="inline-form" method="post">
       <div>
         <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
+        <input type='hidden' name='_csrf' value='<%= _csrf %>'>
       </div>
     </form>
-  <% }    %>
+  <% } %>
   <%= page.title %>
 </h1>
 <div>
