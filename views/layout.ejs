@@ -103,9 +103,12 @@
                     <i class='fa fa-phone'></i> <span class='phone-number'><%= sails.config.sitesettings.phone_number %></span>
                   </li>
                 <% } %>
-                <li>
-                  <a class="btn btn-xs btn-twitter" href="http://twitter.com/<%= sails.config.sitesettings.twitter_username %>"><i class="fa fa-twitter"></i> @<%= sails.config.sitesettings.twitter_username %></a>
-                </li>
+                <% _.each(sails.config.sitesettings.social_sidebar, function(site){ %>
+                  <li>
+                    <a class="btn btn-xs btn-<%= site.platform %>" href="<%= site.link %>"><i class="fa fa-<%= site.platform %>"></i> <%= site.platform %></a>
+                  </li>
+                <% }) %>
+                
               </ul>
               
               <ul class='list-unstyled flexlist'>

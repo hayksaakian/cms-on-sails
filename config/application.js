@@ -15,9 +15,13 @@ module.exports.sitesettings = {
 
   blog_tagline: 'Business, Code, and Problem Solving',
 
-  twitter_username: 'hayksaakian',
-
-  instagram_id: '',
+  social_sidebar: [
+    {
+      platform: 'twitter',
+      link: 'http://twitter.com/hayksaakian',
+      display_name: '@hayksaakian'
+    }
+  ],
 
   google_plus_id: '+HaykSaakian',
 
