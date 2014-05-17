@@ -1,4 +1,19 @@
-# blog
+# CMS on Sails
+
+A content management system built on top of JavaScript, using [Sails.js](http://sailsjs.org)
+
+1) get started:
+
+    npm install
+
+2) modify the config/application.js file and customize it for yourself
+
+3) lift your sails
+
+    sails lift
+
+
+## What is this?
 
 a [Sails](http://sailsjs.org) application
 
