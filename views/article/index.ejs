@@ -17,7 +17,10 @@
 </div>
 <% } %>
 
-<% articles.forEach(function(article){ %>
+<% unpinned_articles = articles.filter(function(article){ 
+  return article.pinned !== true
+}) %>
+<% unpinned_articles.forEach(function(article){ %>
   <%- partial('partials/article', {article: article, snippet: true}) %>
 <% }) %>
 
