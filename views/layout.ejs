@@ -65,7 +65,6 @@
   </head>
 
   <body>
-
   <% if(req.session.authenticated) { %>  
     <nav class="navbar navbar-inverse navbar-default navbar-static-top" role="navigation">
       <div class="container">
@@ -93,7 +92,8 @@
             <div class='title-box-container'>
               <div class="title-box media">
                 <img class="logo-image img-circle img-thumbnail pull-left" src="<%= sails.config.sitesettings.logo_url %>">
-                <h4 class="text-muted layout-title"><a href="/"><%= sails.config.sitesettings.website_title %></a></h4>
+                <h4 class="text-muted layout-title"><a href="/"><%= sails.config.sitesettings.website_title %></a>
+                </h4>
               </div>
             </div>
             <div class='well sidebar sidebar-module sidebar-module-inset'>
@@ -222,11 +222,11 @@
     <script type="text/javascript">
       var markdown_field = document.getElementById('markdown_field')
       if(markdown_field !== null){
-        console.log('loading editor!!');
+        // console.log('loading editor!!');
         markdown_field.style.display = 'none';
         var editor = new EpicEditor({'textarea': 'markdown_field', 'basePath':''}).load();
       } else{
-        console.log('not loading editor')
+        // console.log('not loading editor')
       }
     </script>
     <!-- Hello Bar -->

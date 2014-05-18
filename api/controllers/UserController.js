@@ -10,17 +10,44 @@ module.exports = {
 
 
 
+  // admin panel
+  panel: function (req, res, next) {
+    User.find({}).limit(1).exec(function(err, users) {
+      if (err) return next(err);
+      user = users[0]
+      res.view({user: user})
+    })    
+  },
+
+
+  // admin panel
+  panel_update: function (req, res, next) {
+    // get current settings
+    base = sails.config.sitesettings;
+
+    // merge in the user defined settings
+    for(var key in req.params.all()){
+      if (base.hasOwnProperty(key)) {
+        base[key] = req.param(key)
+      }
+    }
+
+    // persist the settings
+    sails.config.sitesettings = base;
+
+    res.redirect('/admin/panel')
+  },
+
 
   /**
    * `UserController.edit`
    */
 
+
   edit: function (req, res, next) {
     User.find({}).limit(1).exec(function(err, users) {
       if (err) return next(err);
-
       user = users[0]
-
       res.view({user: user})
     })
   },

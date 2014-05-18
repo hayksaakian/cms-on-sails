@@ -1,0 +1,30 @@
+<form action='/admin/panel/update' method='post' class="form-horizontal" role="form">
+  <h2 class="form-signin-heading">Edit Site Settings</h2>
+  <% 
+  setting_names = Object.keys(sails.config.sitesettings)
+  _.each(setting_names, function(setting_name){ %>
+    <% if(typeof(sails.config.sitesettings[setting_name]) === typeof('a string')){ %>
+<div class="form-group">
+  <label for="<%= setting_name %>" class="col-sm-4 control-label"><%= setting_name %></label>
+  <div class="col-sm-8">
+    <input name="<%= setting_name %>" value="<%= sails.config.sitesettings[setting_name] %>" type="text" placeholder="<%= setting_name %>" class="form-control">
+  </div>
+</div>
+
+
+    <% } %>
+  <% }) %>
+
+<!--   <label class="checkbox">
+    <input type="checkbox" value="remember-me"> Remember me
+  </label> -->
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+    </div>
+  </div>
+  <!-- hidden inputs -->
+  <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+  <input type='hidden' name='id' value='<%= user.id %>'>
+</form>

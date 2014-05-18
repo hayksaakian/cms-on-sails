@@ -1,3 +1,5 @@
+// These site settings are overridden by site settings from the database
+// database settings take priority over these settings
 
 module.exports.sitesettings = {
   author: 'Hayk Saakian',
