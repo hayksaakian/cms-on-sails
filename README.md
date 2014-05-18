@@ -2,16 +2,22 @@
 
 A content management system built on top of JavaScript, using [Sails.js](http://sailsjs.org)
 
-1) get started:
+1) download the repository
+
+    git clone https://github.com/hayksaakian/cms-on-sails.git
+    cd cms-on-sails
+
+2) get started:
 
     npm install
-
-2) modify the config/application.js file and customize it for yourself
 
 3) lift your sails
 
     sails lift
 
+Now you're good to go!
+
+You can modify your configuration by logging into the website and editing the admin panel
 
 ## What is this?
 
