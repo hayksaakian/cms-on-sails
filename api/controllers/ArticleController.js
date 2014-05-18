@@ -107,9 +107,16 @@ module.exports = {
    * `ArticleController.destroy`
    */
 
-  destroy: function (req, res) {
-    return res.json({
-      todo: 'Not implemented yet!'
-    });
+  destroy: function(req, res, next) {
+    Article.findOne({id: req.param('id') }).exec(function(err, article){
+    // Page.findOne({clean_title: req.param('clean_title')}).exec(function (err, page){
+      if (err) return next(err);
+      // console.log(page)
+      article = article || {};
+      
+      article.destroy(function (err) {
+        res.redirect('/')
+      });
+    })
   }
 };

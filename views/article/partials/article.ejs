@@ -24,6 +24,13 @@
   </div>
   <% if(req.session.authenticated){ %>
     <small><a href="/article/<%= article.id %>/edit">Edit Article</a></small>
+
+    <form action='/article/<%= article.id %>/delete' class="inline-form" method="post">
+      <div>
+        <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
+        <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+      </div>
+    </form>
   <% } %>
   <p class="blog-post-meta">published <%= article.published_at() %></p>
   <div class="blog-post-foot">

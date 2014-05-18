@@ -111,8 +111,17 @@
                     <i class='fa fa-phone'></i> <span class='phone-number'><%= sails.config.sitesettings.phone_number %></span>
                   </li>
                 <% } %>
-                <% _.each(sails.config.sitesettings.social_sidebar, function(site){ %>
+                <% 
+                social_networks = sails.config.sitesettings.shown_social_networks.split(/\s*,\s*/);
+                _.each(social_networks, function(network){ %>
                   <li>
+                    <% 
+                      site = {
+                        platform: network,
+                        link: sails.config.sitesettings[network+"_link"],
+                        display_name: sails.config.sitesettings[network+"_display_name"]
+                      }
+                    %>
                     <a class="btn btn-xs btn-<%= site.platform %>" href="<%= site.link %>"><i class="fa fa-<%= site.platform %>"></i> <%= site.display_name %></a>
                   </li>
                 <% }) %>

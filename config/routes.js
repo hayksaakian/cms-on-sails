@@ -34,6 +34,7 @@ module.exports.routes = {
   'get /article/new' : 'ArticleController.new',
   'get /article/:id/edit' : 'ArticleController.edit',
   'post /article/:id/update' : 'ArticleController.update',
+  'post /article/:id/delete' : 'ArticleController.destroy',
   'get /article/:id' : 'ArticleController.show',
   'get /article/:id/:slug?' : 'ArticleController.show',
 
