@@ -20,6 +20,8 @@ module.exports.policies = {
   'UserController': {
     'edit': ['sessionAuth', 'flash', 'sidebar'],
     'update': ['sessionAuth', 'flash', 'sidebar'],
+    'panel': ['sessionAuth', 'flash', 'sidebar'],
+    'panel_update': ['sessionAuth', 'flash', 'sidebar'],
   },
   'CommentController': {
     'create': ['flash', 'sidebar'],
