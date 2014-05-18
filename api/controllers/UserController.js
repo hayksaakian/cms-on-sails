@@ -22,20 +22,40 @@ module.exports = {
 
   // admin panel
   panel_update: function (req, res, next) {
+    // step 0:
+    // save sails.config.sitesettings;
+    // to the database
+
+    // step 1:
     // get current settings
-    base = sails.config.sitesettings;
+    Setting.find({}).limit(1).exec(function(err, settings_arr){
+      if(err) return next(err);
+      // there should always be at least one settings object
+      // before this request is ever made
+      // make sure it's created when sails is lifted
+      settings = settings_arr[0]
 
-    // merge in the user defined settings
-    for(var key in req.params.all()){
-      if (base.hasOwnProperty(key)) {
-        base[key] = req.param(key)
+      // step 2:
+      // merge in the user defined settings
+      all_params = req.params.all()
+      for(var key in all_params){
+        if (settings.hasOwnProperty(key)) {
+          settings[key] = req.param(key)
+        }
       }
-    }
+      // console.log('about to save:')
+      // console.log(settings)
+      // persist the settings to storage
+      Setting.update({id: settings.id}, settings, function (err, settings_arr) {
+        if(err) return next(err);
+        // persist the settings to memory
+        // console.log(settings_arr)
+        sails.config.sitesettings = settings_arr[0];
 
-    // persist the settings
-    sails.config.sitesettings = base;
+        res.redirect('/admin/panel')
+      })
+    })
 
-    res.redirect('/admin/panel')
   },
 
 
