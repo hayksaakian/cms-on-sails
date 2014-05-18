@@ -55,6 +55,13 @@
       ga('send', 'pageview');
 
     </script>
+
+    <style type="text/css">
+      /* hide hellobar logo */
+      a#hellobar_logo, a#hellobar_logo:link, a#hellobar_logo:visited {
+        display:none !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -213,18 +220,20 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-var markdown_field = document.getElementById('markdown_field')
-if(markdown_field !== null){
-  console.log('loading editor!!');
-  markdown_field.style.display = 'none';
-  var editor = new EpicEditor({'textarea': 'markdown_field', 'basePath':''}).load();
-} else{
-  console.log('not loading editor')
-}
+      var markdown_field = document.getElementById('markdown_field')
+      if(markdown_field !== null){
+        console.log('loading editor!!');
+        markdown_field.style.display = 'none';
+        var editor = new EpicEditor({'textarea': 'markdown_field', 'basePath':''}).load();
+      } else{
+        console.log('not loading editor')
+      }
     </script>
     <!-- Hello Bar -->
-    <% if(req.session.authenticated){}else{ %>
-    <script type="text/javascript" src="//s3.amazonaws.com/scripts.hellobar.com/<%= sails.config.sitesettings.hello_bar_id %>.js"></script>
+    <% if(req.session.authenticated){
+    }else if(sails.config.sitesettings.hello_bar_enabled){ %>
+    <script type="text/javascript" src="//s3.amazonaws.com/scripts.hellobar.com/<%= sails.config.sitesettings.hello_bar_id %>.js">
+    </script>
     <% } %>
   </body>
 </html>
