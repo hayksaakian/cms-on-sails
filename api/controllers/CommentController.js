@@ -12,8 +12,10 @@ module.exports = {
       if (err) return next(err);
       console.log('done creating comment')
       console.log(comment)
-      Article.find(comment.article).exec(function (err, article) {
+      console.log(comment.article);
+      Article.findOne({id: comment.article}).exec(function (err, article) {
         if (err) return next(err);
+        console.log(article);
         var s = '/article/'+article.id+'/'+article.clean_title;
         console.log(s)
         res.redirect(s);
