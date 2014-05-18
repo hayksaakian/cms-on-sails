@@ -10,17 +10,20 @@
   %>
 
   <div class='form-group'>
-    <div class="radio radio-inline">
-      <label>
-        <input type="radio" name="pinned" value="true" <%= article.pinned ? 'checked' : '' %>>
-        Yes
-      </label>
-    </div>
-    <div class="radio radio-inline">
-      <label>
-        <input type="radio" name='pinned' value="false" <%= article.pinned ? '' : 'checked' %>>
-        No
-      </label>
+    <label for="pinned" class="col-sm-4 control-label">Pin Article to Top?</label>
+    <div class='col-sm-8'>
+      <div class="radio radio-inline">
+        <label>
+          <input type="radio" name="pinned" value="true" <%= article.pinned ? 'checked' : '' %>>
+          Yes
+        </label>
+      </div>
+      <div class="radio radio-inline">
+        <label>
+          <input type="radio" name='pinned' value="false" <%= article.pinned ? '' : 'checked' %>>
+          No
+        </label>
+      </div>
     </div>
   </div>
   <div class='form-group'>
