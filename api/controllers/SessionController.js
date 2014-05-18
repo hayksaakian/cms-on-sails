@@ -18,6 +18,7 @@ module.exports = {
   destroy: function (req, res, next) {
     req.session.authenticated = false;
     req.session.user = null;
+    req.session.destroy();
     res.redirect('/');
   },
   create: function(req, res, next){
