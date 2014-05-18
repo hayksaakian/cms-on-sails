@@ -40,7 +40,12 @@ module.exports = {
       all_params = req.params.all()
       for(var key in all_params){
         if (settings.hasOwnProperty(key)) {
-          settings[key] = req.param(key)
+          // handle boolean values that html forms render as string
+          the_val = req.param(key)
+          if(the_val === 'true' || the_val === 'false'){
+            the_val = the_val === 'true'
+          }
+          settings[key] = the_val
         }
       }
       // console.log('about to save:')
