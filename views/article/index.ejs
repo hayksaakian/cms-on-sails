@@ -6,6 +6,17 @@
   </h1>
 
 </div>
+<% pinned_articles = articles.filter(function(article){ 
+  return article.pinned === true
+}) %>
+<% if(pinned_articles.length > 0){ %>
+<div class='well'>
+  <% pinned_articles.forEach(function(article){ %>
+    <%- partial('partials/article', {article: article, snippet: true}) %>
+  <% }) %>
+</div>
+<% } %>
+
 <% articles.forEach(function(article){ %>
   <%- partial('partials/article', {article: article, snippet: true}) %>
 <% }) %>

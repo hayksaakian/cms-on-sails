@@ -13,6 +13,10 @@ var scrub = require('url-seo-scrubber');
 module.exports = {
 
   attributes: {
+    pinned: {
+      type: 'boolean',
+      defaultsTo: false
+    },
     title : { 
       type: 'string',
       required: true 

@@ -3,11 +3,26 @@
     if (typeof(article) === 'undefined'){
       article = {
         title: '',
-        body: ''
+        body: '',
+        pinned: false
       }
     }
   %>
 
+  <div class='form-group'>
+    <div class="radio radio-inline">
+      <label>
+        <input type="radio" name="pinned" value="true" <%= article.pinned ? 'checked' : '' %>>
+        Yes
+      </label>
+    </div>
+    <div class="radio radio-inline">
+      <label>
+        <input type="radio" name='pinned' value="false" <%= article.pinned ? '' : 'checked' %>>
+        No
+      </label>
+    </div>
+  </div>
   <div class='form-group'>
     <input name='title' value='<%= article.title %>' placeholder='Title' type='text' class='form-control' autofocus>
   </div>
