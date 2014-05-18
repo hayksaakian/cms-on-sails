@@ -16,37 +16,23 @@ module.exports.policies = {
 
   // Default policy for all controllers and actions
   // (`true` allows public access) 
+  // https://gist.github.com/Foxandxss/712d74ad85a4caf9a125
   '*': ['flash', 'sidebar'],
   'UserController': {
-    'edit': ['sessionAuth', 'flash', 'sidebar'],
-    'update': ['sessionAuth', 'flash', 'sidebar'],
-    'panel': ['sessionAuth', 'flash', 'sidebar'],
-    'panel_update': ['sessionAuth', 'flash', 'sidebar'],
+    '*': ['sessionAuth', 'flash', 'sidebar']
   },
   'CommentController': {
     'create': ['flash', 'sidebar'],
-    'destroy': ['sessionAuth', 'flash', 'sidebar'],
+    'destroy': ['sessionAuth', 'flash', 'sidebar']
   },
   'ArticleController':{
-    'new': ['sessionAuth', 'flash', 'sidebar'],
-    'edit': ['sessionAuth', 'flash', 'sidebar'],
-    'create': ['sessionAuth', 'flash', 'sidebar'],
-    'update': ['sessionAuth', 'flash', 'sidebar'],
-    'destroy': ['sessionAuth', 'flash', 'sidebar']
-    // not needed:
-    // show
-    // index
+    'index': ['flash', 'sidebar'],
+    'show': ['flash', 'sidebar'],
+    '*': ['sessionAuth', 'flash', 'sidebar']
   },
   'PageController':{
-    'new': ['sessionAuth', 'flash', 'sidebar'],
-    'edit': ['sessionAuth', 'flash', 'sidebar'],
-    'create': ['sessionAuth', 'flash', 'sidebar'],
-    'update': ['sessionAuth', 'flash', 'sidebar'],
-    'index': ['sessionAuth', 'flash', 'sidebar'],
-    'destroy': ['sessionAuth', 'flash', 'sidebar'],
-    // not needed:
-    // show
-    // index
+    'show': ['flash', 'sidebar'],
+    '*': ['sessionAuth', 'flash', 'sidebar']
   }
 
 
