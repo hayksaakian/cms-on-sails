@@ -45,6 +45,8 @@ module.exports.routes = {
 
   'post /session' : 'SessionController.create',
   'get /admin' : 'SessionController.new',
+  'get /user/new' : 'UserController.new',
+  '/user/create' : 'UserController.create',
   'get /admin/panel' : 'UserController.panel',
   '/admin/panel/update' : 'UserController.panel_update',
   'get /admin/edit' : 'UserController.edit',

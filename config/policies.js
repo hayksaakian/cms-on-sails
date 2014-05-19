@@ -19,7 +19,9 @@ module.exports.policies = {
   // https://gist.github.com/Foxandxss/712d74ad85a4caf9a125
   '*': ['flash', 'sidebar'],
   'UserController': {
-    '*': ['sessionAuth', 'flash', 'sidebar']
+    '*': ['sessionAuth', 'flash', 'sidebar'],
+    'create' : ['flash', 'sidebar'],
+    'new' : ['flash', 'sidebar']
   },
   'CommentController': {
     'create': ['flash', 'sidebar'],

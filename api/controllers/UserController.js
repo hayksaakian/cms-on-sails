@@ -63,6 +63,48 @@ module.exports = {
 
   },
 
+  new: function (req, res, next) {
+    // console.log(req.params.all())
+    User.findOne({})
+    .then(function (user) {
+      if(user){
+        // there's already a user, so we cannot make a new one
+      }else{
+        return;
+      }
+      return [user]
+    }).spread(function (user) {
+      if(user){
+        res.redirect('/admin')
+      }else{
+        res.view();
+      }
+    }).fail(function (err) {
+      return next(err)
+      res.redirect('/user/new')
+    });
+  },
+
+  create: function (req, res, next){
+    // console.log(req.params.all())
+    User.findOne({})
+    .then(function (user) {
+      if(user){
+        // there's already a user, so we cannot make a new one
+      }else{
+        User.create(req.params.all())
+        .then(function (user) {
+          return user;
+        })
+      }
+      return [user]
+    }).spread(function (user) {
+      res.redirect('/admin')
+    }).fail(function (err) {
+      return next(err)
+      res.redirect('/user/new')
+    });
+  },
 
   /**
    * `UserController.edit`

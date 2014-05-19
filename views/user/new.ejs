@@ -1,0 +1,13 @@
+<form action='/user/create' method='post' class="form-signin" role="form">
+  <h2 class="form-signin-heading">Create your Admin Account</h2>
+  <input name='email' type="email" class="form-control" placeholder="Email address" required autofocus>
+  <input name='name' type="text" class="form-control" placeholder="Name" required>
+  <input name='password' type="password" class="form-control" placeholder="Password" required>
+  <input name='confirmation' type="password" class="form-control" placeholder="Password, Again" required>
+<!--   <label class="checkbox">
+    <input type="checkbox" value="remember-me"> Remember me
+  </label> -->
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Create Admin Account</button>
+  <!-- hidden inputs -->
+  <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+</form>
