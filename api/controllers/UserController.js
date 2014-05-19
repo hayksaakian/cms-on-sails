@@ -66,8 +66,9 @@ module.exports = {
   'new': function (req, res, next) {
     // console.log(req.params.all())
     console.log('inside user/new')
-    User.findOne({})
-    .then(function (user) {
+    User.find({}).limit(1)
+    .then(function (users) {
+      user = users[0]
       if(user){
         // there's already a user, so we cannot make a new one
       }else{
@@ -88,8 +89,9 @@ module.exports = {
 
   create: function (req, res, next){
     // console.log(req.params.all())
-    User.findOne({})
-    .then(function (user) {
+    User.find({}).limit(1)
+    .then(function (users) {
+      user = users[0]
       if(user){
         // there's already a user, so we cannot make a new one
       }else{
