@@ -2,7 +2,7 @@
 <div class='comments'>
   <% if(comments.length > 0){ %>
     <div>
-      <small class='text-muted'><%= comments.length %> comments:</small>
+      <small class='text-muted'><%= article.comments.length %> comments:</small>
       <% comments.forEach(function(comment){ %>
         <%- partial('partials/comment', {comment: comment}) %>
       <% }) %>

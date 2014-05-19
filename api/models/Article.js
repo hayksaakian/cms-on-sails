@@ -35,7 +35,8 @@ module.exports = {
     body : { type: 'string' },
 
     comments : {
-      collection: 'article'
+      collection: 'comment',
+      via: 'article'
     },
     published_at: function(){
       return moment(this.createdAt).format('LLL')
