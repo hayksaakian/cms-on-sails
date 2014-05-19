@@ -69,11 +69,7 @@ module.exports = {
     User.find({}).limit(1)
     .then(function (users) {
       user = users[0]
-      if(user){
-        // there's already a user, so we cannot make a new one
-      }else{
-        return;
-      }
+      // there's already a user, so we should not make a new one
       return [user]
     }).spread(function (user) {
       if(user){
