@@ -63,7 +63,7 @@ module.exports = {
 
   },
 
-  new: function (req, res, next) {
+  'new': function (req, res, next) {
     // console.log(req.params.all())
     User.findOne({})
     .then(function (user) {
