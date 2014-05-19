@@ -24,3 +24,9 @@
   <%- partial('partials/article', {article: article, snippet: true}) %>
 <% }) %>
 
+<% if(articles.length === 0){ %>
+  <h1>
+    <a href="/user/new">Create your Admin Account to get Started</a>
+  </h1>
+<% } %>
+
