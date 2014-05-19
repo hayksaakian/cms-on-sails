@@ -65,7 +65,7 @@ module.exports = {
 
   'new': function (req, res, next) {
     // console.log(req.params.all())
-    console.log('inside user/new')
+    // console.log('inside user/new')
     User.find({}).limit(1)
     .then(function (users) {
       user = users[0]
