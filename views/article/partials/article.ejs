@@ -1,22 +1,18 @@
-<div class='blog-post'>
+<div class='blog-post' itemscope itemtype="http://schema.org/Article">
   <% 
-   onlySnippet = req.path.indexOf(article.id) === -1;
+   snippet = typeof(snippet) !== typeof(undefined);
   %>
   <!-- could also be req.options.action -->
-  <% if(onlySnippet){ %>
-    <h2 class='blog-post-title'>
-      <a href="/article/<%= article.id %>/<%= article.cleanTitle() %>">
-        <%= article.title %>
-      </a>
-    </h2>
-  <% } else { %>
-    <h1 class='blog-post-title'>
-      <%= article.title %>
-    </h1>
-  <% } %>
-  <div class="blog-post-body">
+  
+  <h1 class='blog-post-title'>
+    <a itemprop="url" href="/article/<%= article.id %>/<%= article.cleanTitle() %>">
+      <span itemprop="name"><%= article.title %></span>
+    </a>
+  </h1>
+
+  <div class="blog-post-body" itemprop="articleBody" >
     <!-- 'click to see more' -->
-    <% if(typeof(snippet) !== typeof(undefined)){ %>
+    <% if(snippet){ %>
       <%- article.bodyHTML() %>
     <% }else{ %>
       <%- article.bodyHTML() %>
@@ -32,9 +28,12 @@
       </div>
     </form>
   <% } %>
-  <p class="blog-post-meta">published <%= article.published_at() %></p>
+
+  <p class="blog-post-meta">
+    published <span itemprop="datePublished" content="<%= article.createdAt %>"><%= article.published_at() %></span>
+  </p>
   <div class="blog-post-foot">
-    <% if(onlySnippet){ %>
+    <% if(snippet){ %>
       <a href="/article/<%= article.id %>/<%= article.cleanTitle() %>/#comments">
         <%= article.comments.length %> Comments
       </a>
