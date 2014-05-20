@@ -15,7 +15,10 @@ module.exports = {
 
   attributes: {
     owner: 'string',
-    text: 'string',
+    text: {
+      type:'string',
+      required: true
+    },
     article: {
       model: 'article'
     },

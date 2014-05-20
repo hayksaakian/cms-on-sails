@@ -9,6 +9,7 @@
     %>
     <%= full_title %>
   </title>
+  <a rel="author" href="https://plus.google.com/<%= sails.config.sitesettings.google_plus_id %>"><%= sails.config.sitesettings.author %></a>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -163,9 +164,6 @@
         </div>
       </div>
       <div class='row footer'>
-        <small>
-          <a class='text-muted' href="https://plus.google.com/<%= sails.config.sitesettings.google_plus_id %>?rel=author"><%= sails.config.sitesettings.google_plus_id %> on Google Plus</a>
-        </small>
       </div>
       
     </div>
