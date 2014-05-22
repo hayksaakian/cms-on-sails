@@ -9,7 +9,7 @@
  */
 module.exports = function(req, res, next) {
 
-  Page.find().exec(function(err, pages){
+  Page.find({in_nav: true}).exec(function(err, pages){
     res.locals.pages = pages
     return next()
   })
