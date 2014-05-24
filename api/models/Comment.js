@@ -22,6 +22,14 @@ module.exports = {
     article: {
       model: 'article'
     },
+    parent: {
+      model: 'comment',
+      dominant: true
+    },
+    children: {
+      collection: 'comment',
+      via: 'parent'
+    },
     published_at: function(){
       return moment(this.createdAt).format('LLL')
     },

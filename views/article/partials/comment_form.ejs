@@ -1,6 +1,10 @@
-<h4>Write a Comment:</h4>
+<% if(typeof(parent_id) !== typeof(undefined) && (parent_id > 0) === false){ %>
+  <h4>Write a Comment:</h4>
+<% } %>
 <form class="form" action="/comment" method="POST">
   <input type='hidden' name='article' value='<%= article.id %>'>
+  <input type='hidden' name='parent' value="<%= typeof(parent_id) === typeof(undefined) ? '' : parent_id %>">
+
   <div class='form-group'>
     <input name='owner' placeholder='Name' type='text' class='form-control'>
   </div>

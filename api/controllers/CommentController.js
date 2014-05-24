@@ -17,8 +17,11 @@ module.exports = {
     }
     tarp_fields = ['contact', 'message']
     _.each(tarp_fields, function (tarp) {
-      if(req.param(tarp).length > 0){
+      if(req.param(tarp).length > 0 && req.param(tarp).trim().length > 0){
         console.log('we got a bot')
+        console.log(tarp)
+        console.log(req.param(tarp))
+        console.log(req.param(tarp).length)
         badguy = true;
         return res.badRequest();
       }

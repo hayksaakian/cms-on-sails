@@ -112,3 +112,7 @@ body {
 .hellobar_logo{
   display: none !important;
 }
+
+.comment-reply-form {
+  display: none;
+}
