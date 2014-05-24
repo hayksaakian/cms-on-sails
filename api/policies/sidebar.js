@@ -9,8 +9,8 @@
  */
 module.exports = function(req, res, next) {
 
-  Page.find({in_nav: true}).exec(function(err, pages){
-    res.locals.pages = pages
+  Page.find({'not': {'in_nav':false}}).exec(function(err, pages){
+    res.locals.nav_pages = pages
     return next()
   })
 };

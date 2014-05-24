@@ -137,7 +137,7 @@
                 <li>
                   <h4><a href="/about">About Me</a></h4>
                 </li> -->
-                <% _.each(res.locals.pages, function(page){ %>
+                <% _.each(res.locals.nav_pages, function(page){ %>
                   <li>
                     <h4>
                       <a href='/<%= page.clean_title || page.id %>'>
