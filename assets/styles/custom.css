@@ -99,6 +99,14 @@ body {
   margin-bottom: 30px;
 }
 
+.comment-children {
+  -webkit-transition: .125s linear;
+  -moz-transition: .125s linear;
+  -ms-transition: .125s linear;
+  -o-transition: .125s linear;
+  transition: .125s linear;
+}
+
 /* random css */
 .inline-form {
   display: inline-block;

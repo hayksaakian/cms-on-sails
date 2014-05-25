@@ -1,42 +1,57 @@
-<div class='comment-container'>
-  <div class='comment media well well-sm' id="comment-<%= comment.id %>">
-    <div class='comment-header media-heading'>
-      <cite>
-        <% if(comment.website){ %>
-          <a href="<%= comment.website %>" rel="external nofollow">
-            <%= comment.owner %>
-          </a>
-        <% }else{ %>
-          <%= comment.owner %>
-        <% } %>
-      </cite>
-      <small>
-        <a href="<%= req.path %>/#comment-<%= comment.id %>" class='text-muted'>
-          <%= comment.published_at() %>
-        </a>
-      </small>
-    </div>
-    <p><%- comment.text %></p>
-    <!-- <a href="">reply</a> -->
-    <% if(req.session.authenticated){ %>
-      <form action='/comment/<%= comment.id %>/delete' class="inline-form" method="post">
-        <div>
-          <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
-          <input type='hidden' name='_csrf' value='<%= _csrf %>'>
-        </div>
-      </form>
+  <div class='comment media' id="comment-<%= comment.id %>">
+    <%
+    // TODO this is sloppy, fix later
+    children = article.comments.filter(function(c){
+      return c.parent === comment.id
+      })
+    %>
+    <% if(children.length > 0){ %>
+      <a class="pull-left" href="#" onclick="toggle(event, '#replies-to-<%= comment.id %>')" id='toggle-replies-to-<%= comment.id %>'>
+        <i class='fa fa-comments-o'></i>
+      </a>
+    <% }else{ %>
+      <a class="pull-left" href="#">
+        <i class='fa fa-comment-o'></i>
+      </a>
     <% } %>
-    <button class="btn" onclick="$('#reply-to-<%= comment.id %>').toggle()">Reply</button>
+    <div class='media-body'>
+      <div class='media-heading'>
+        <cite>
+          <% if(comment.website){ %>
+            <a href="<%= comment.website %>" rel="external nofollow">
+              <%= comment.owner %>
+            </a>
+          <% }else{ %>
+            <%= comment.owner %>
+          <% } %>
+        </cite>
+        <small>
+          <a href="<%= req.path %>/#comment-<%= comment.id %>" class='text-muted'>
+            <%= comment.published_at() %>
+          </a>
+        </small>
+      </div>
+      <p><%- comment.text %></p>
+      <!-- <a href="">reply</a> -->
+      <% if(req.session.authenticated){ %>
+        <form action='/comment/<%= comment.id %>/delete' class="inline-form" method="post">
+          <div>
+            <input class="btn btn-danger btn-sm" type="submit" value="Delete" />
+            <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+          </div>
+        </form>
+      <% } %>
+      <button class="btn btn-link btn-xs" onclick="$('#reply-to-<%= comment.id %>').toggle()">Reply</button>
 
-
-    <!-- reply form -->
-    <div class='comment-reply-form' id='reply-to-<%= comment.id %>'>
-      <%- partial('comment_form', {parent_id: comment.id}) %>
+      <!-- reply form -->
+      <div class='comment-reply-form' id='reply-to-<%= comment.id %>'>
+        <%- partial('comment_form', {parent_id: comment.id}) %>
+      </div>
+      <!-- show child comments -->
+      <div class='comment-children' id="replies-to-<%= comment.id %>">
+      <% _.each(children, function(child){ %>
+        <%- partial('comment', {comment: child}) %>
+      <% }) %>
+      </div>
     </div>
-    <!-- show child comments -->
-    <% _.each(comment.children, function(child){ %>
-      <%- partial('comment', {comment: child}) %>
-    <% }) %>
   </div>
-
-</div>
