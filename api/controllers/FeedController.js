@@ -15,7 +15,7 @@ module.exports = {
     // console.log(req.url)
     // console.log(req.originalUrl)
     // console.log(req.host)
-    Article.find().sort('createdAt DESC').populate('comments').exec(function (err, articles){
+    Article.find().sort('createdAt DESC').exec(function (err, articles){
       if (err) return next(err);
 
 /* lets create an rss feed */
@@ -25,11 +25,11 @@ if(articles.length > 0){
   pubDate = new Date();
 }
 var feed = new RSS({
-    title: 'title',
-    description: 'description',
+    title: sails.config.sitesettings.website_title + ' ' + sails.config.sitesettings.blog_tagline,
+    description: sails.config.sitesettings.base_page_title,
     feed_url: req.originalUrl,
     site_url: rootDomain,
-    image_url: rootDomain+'icon.png',
+    image_url: sails.config.sitesettings.logo_url,
     // docs: 'http://'+sails.config.sitesettings.domain+'/rss/docs.html',
     // managingEditor: 'hayk@skyrealre.com',
     // webMaster: 'hayk@skyrealre.com',
